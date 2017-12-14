@@ -1,0 +1,404 @@
+﻿@model CDSC.Models.GravidezModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "Gravidez", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading" @*style="text-align:center"*@>
+                        <h2 class="panel-title">Dados sobre gravidez, parto e puerpério</h2>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Pré-Natal</h2>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 form-inline">
+                                <h3 class="panel-title">Pré natal inicioou no:</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.inicioPreNatal, 1, new { @class = "control-radio", @name = "radioPeriodoPrenatal", @required = "required" })<span><i></i>1º Trimestre</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.inicioPreNatal, 2, new { @class = "control-radio", @name = "radioPeriodoPrenatal" })<span><i></i>2º Trimestre</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.inicioPreNatal, 2, new { @class = "control-radio", @name = "radioPeriodoPrenatal" })<span><i></i>3º Trimestre</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Número de consultas pré natais</h3>
+                                @Html.TextBoxFor(model => model.numeroConsultas, new { @class = "form-control", @maxlength = "10" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+
+                        <div class="row">
+                            <h3 class="panel-title">Sorologias realizadas no pré-natal para os agravos (Código do CID-10):</h3>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Z21: Status</h3>
+                                @Html.DropDownListFor(model => model.statusZ21Prenatal, (SelectList)ViewBag.StatusSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Z21: Período</h3>
+                                @Html.DropDownListFor(model => model.periodoZ21Prenatal, (SelectList)ViewBag.PeriodoSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">A53: Status</h3>
+                                @Html.DropDownListFor(model => model.statusA53Prenatal, (SelectList)ViewBag.StatusSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">A53: Período</h3>
+                                @Html.DropDownListFor(model => model.periodoA53Prenatal, (SelectList)ViewBag.PeriodoSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">B18: Status</h3>
+                                @Html.DropDownListFor(model => model.statusB18, (SelectList)ViewBag.StatusSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">B18: Período</h3>
+                                @Html.DropDownListFor(model => model.periodoB18, (SelectList)ViewBag.PeriodoSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">B58: Status</h3>
+                                @Html.DropDownListFor(model => model.statusB58, (SelectList)ViewBag.StatusSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">B58: Período</h3>
+                                @Html.DropDownListFor(model => model.periodoB58, (SelectList)ViewBag.PeriodoSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-12 form-inline">
+                                <h3 class="panel-title">Imunização dupla adulto:</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusImunizacaoDupla, 1, new { @class = "control-radio", @name = "radioImunizacaoDupla", @required = "required" })<span><i></i>Esquema Completo</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusImunizacaoDupla, 2, new { @class = "control-radio", @name = "radioImunizacaoDupla" })<span><i></i>Esquema Incompleto</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusImunizacaoDupla, 3, new { @class = "control-radio", @name = "radioImunizacaoDupla" })<span><i></i>Não Realizou</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusImunizacaoDupla, 4, new { @class = "control-radio", @name = "radioImunizacaoDupla" })<span><i></i>Sem Informação</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-12 form-inline">
+                                <h3 class="panel-title">Suplementação de Ferro:</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusSuplementacaoFerro, 1, new { @class = "control-radio", @name = "suplementacaoFerro", @required = "required" })<span><i></i>Sim</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusSuplementacaoFerro, 2, new { @class = "control-radio", @name = "suplementacaoFerro" })<span><i></i>Não Realizou</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.statusSuplementacaoFerro, 3, new { @class = "control-radio", @name = "suplementacaoFerro" })<span><i></i>Sem Informação</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Parto e Pós-Parto</h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-inline">
+                                <h3 class="panel-title">Parto Realizado:</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.local, 1, new { @class = "control-radio", @name = "radioLocalParto", @required = "required" })<span><i></i>Hospital/Clínica</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.local, 2, new { @class = "control-radio", @name = "radioLocalParto" })<span><i></i>Domicílio</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.local, 3, new { @class = "control-radio", @name = "radioLocalParto" })<span><i></i>Casa de Parto</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.local, 4, new { @class = "control-radio", @name = "radioLocalParto" })<span><i></i>Outro</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row">
+                            <div class="col-md-6 form-inline">
+                                <h3 class="panel-title">Tipo de Parto:</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.tipoParto, 1, new { @class = "control-radio", @name = "radioTipoParto", @required = "required" })<span><i></i>Normal</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.tipoParto, 2, new { @class = "control-radio", @name = "radioTipoParto" })<span><i></i>Fórceps</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.tipoParto, 3, new { @class = "control-radio", @name = "radioTipoParto" })<span><i></i>Cesáreo</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3 class="panel-title">Indicação</h3>
+                                @Html.TextBoxFor(model => model.indicacao, new { @validate = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row">
+                            <h3 class="panel-title">Sorologias realizadas ainda na maternidade para os agravos (Código do CID-10):</h3>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Z21: Status</h3>
+                                @Html.DropDownListFor(model => model.statusZ21Parto, (SelectList)ViewBag.StatusSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Z21: Período</h3>
+                                @Html.DropDownListFor(model => model.periodoZ21Parto, (SelectList)ViewBag.PeriodoSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">A53: Status</h3>
+                                @Html.DropDownListFor(model => model.periodoZ21Parto, (SelectList)ViewBag.StatusSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">A53: Período</h3>
+                                @Html.DropDownListFor(model => model.periodoA53Parto, (SelectList)ViewBag.PeriodoSorologias, "Selecione...", new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-6 form-inline">
+                                <h3 class="panel-title">Megadose de vitamina A no período pós-parto imediato:</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.megadoseVitaminaA, 1, new { @class = "control-radio", @name = "radioTipoParto", @required = "required" })<span><i></i>Sim</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.megadoseVitaminaA, 2, new { @class = "control-radio", @name = "radioTipoParto" })<span><i></i>Não</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.megadoseVitaminaA, 3, new { @class = "control-radio", @name = "radioTipoParto" })<span><i></i>Sem Informação</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="panel-title">Intercorrências clínicas da gravidez. parto e puerpério:</h3>
+                                @Html.TextAreaFor(model => model.intercorrenciasClinicas, new { @validate = "required", @rows = "3", @class = "form-control", @maxlength = "200" })
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+
+
+
+
+
+                        @*<div class="row">
+
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Ponto de Referência</h3>
+                                    @Html.TextBoxFor(model => model.statusB18, new { @validate = "required", @class = "form-control", @maxlength = "50" })
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Sexo</h3>
+                                    <label class="fancy-radio">
+                                        <input name="genero" value="male" type="radio">
+                                        <span><i></i>Masculino</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="genero" value="female" type="radio">
+                                        <span><i></i>Feminino</span>
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Telefone</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Bairro</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                                <div class="col-md-2">
+                                    <h3 class="panel-title">Cep</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                                <div class="col-md-2">
+                                    <h3 class="panel-title">Uf</h3>
+                                    <select class="form-control">
+                                        <option value="cheese">Selecione...</option>
+                                        <option value="tomatoes">Masculino</option>
+                                        <option value="mozarella">Feminino</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <h3 class="panel-title">Municipio</h3>
+                                    <select class="form-control">
+                                        <option value="cheese">Selecione...</option>
+                                        <option value="tomatoes">Masculino</option>
+                                        <option value="mozarella">Feminino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="panel-title">Cor/Raça/Etnia</h3>
+                                    <select class="form-control">
+                                        <option value="cheese">Selecione...</option>
+                                        <option value="tomatoes">Branca</option>
+                                        <option value="mozarella">Negra</option>
+                                        <option value="mozarella">Amarela</option>
+                                        <option value="mozarella">Parda</option>
+                                        <option value="mozarella">Indigena</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="panel-title">Unidade Básica Que Frequenta</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Nº Prontuário na UBS</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Nº Declaração Nascido Vivo</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Nº Reg. Civil de Nascimento</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="panel-title">Nº Cartão do SUS</h3>
+                                    <input type="text" class="form-control" placeholder="text field">
+                                </div>
+                            </div>*@
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "Gravidez", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                                @*@Html.SubmitButton("Salvar", "Salvar", "Demanda", new { @group = "demanda", @class = "btn bt-padrao icon icon-floppy-disk botaoSubmit" })*@
+
+                                @*@Html.ActionLink("Salvar", "Salvar", "IdentificacaoCrianca", new { @class = "btn bt-padrao icon icon-floppy-disk botaoSubmit" })
+                                    @Html.ActionLink("Avançar", "Index", "MudancaEndereco", new { @class = "btn bt-padrao" })*@
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+}
+
+

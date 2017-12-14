@@ -1,0 +1,60 @@
+﻿@model CDSC.Models.UsuarioModel
+
+@{
+    Layout = "~/Views/Shared/_ExternalLayout.cshtml";
+}
+
+@using (Html.BeginForm("Logar", "Login", FormMethod.Post))
+{
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <div class="vertical-align-wrap">
+            <div class="vertical-align-middle">
+                <div class="auth-box ">
+                    <div class="left">
+                        <div class="content">
+                            <div class="header">
+                                <div class="logo text-center"><img src="~/content/assets/img/logo-dark.png" alt="Klorofil Logo"></div>
+                                <p class="lead">Entre em sua conta</p>
+                            </div>
+                            <form class="form-auth-small" action="index.php">
+                                <div class="form-group">
+                                    <label for="signin-email" class="control-label sr-only">E-mail</label>
+                                    @Html.TextBoxFor(model => model.email, new { @class = "form-control", @maxlength = "50", @placeholder = "email@dominio.com" })
+                                    @*<input type="email" class="form-control" id="signin-email" value="samuel.gold@domain.com" placeholder="Email">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="signin-password" class="control-label sr-only">Senha</label>
+                                    @Html.TextBoxFor(model => model.senha, new { @class = "form-control", @maxlength = "50", @type = "password" })
+                                    @*<input type="password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password">*@
+                                </div>
+                                <div class="form-group clearfix">
+                                    @*<label class="fancy-checkbox element-left">
+                                        <input type="checkbox">
+                                        <span>Remember me</span>
+                                    </label>*@
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+                                @*<div class="bottom">
+                                    <span class="helper-text"><i class="fa fa-lock"></i> <a href="~/Login/Index">Esqueceu a senha?</a></span>
+                                </div>*@
+                                <div class="bottom">
+                                    <span class="helper-text"><i class="fa fa-user"></i> <a href="~/Login/NovoUsuario">Cadastre-se</a></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="overlay"></div>
+                        <div class="content text">
+                            <h1 class="heading">Caderneta Digital de Saúde da Criança</h1>
+                            <p>by Paulo Sérgio Filho</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

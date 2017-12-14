@@ -1,0 +1,109 @@
+﻿@model CDSC.Models.IntercorrenciaModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "Intercorrencias", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Intercorrências (Doenças, Internações, Acidentes, Alergias e Outros)</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Data:</h3>
+                                @Html.TextBoxFor(model => model.data, new { @class = "form-control datepicker-here", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-9">
+                                <h3 class="panel-title">Intercorrência:</h3>
+                                @Html.TextBoxFor(model => model.descricaoIntercorrencia, new { @validate = "required", @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="panel-title">Observações:</h3>
+                                @Html.TextAreaFor(model => model.observacaoIntercorrencia, new { @validate = "required", @rows = "3", @required = "required", @class = "form-control", @maxlength = "200" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "Intercorrencias", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Adicionar</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Lista de Intercorrências</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Intercorrência</th>
+                                                    <th>Observação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaIntercorrencias.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaIntercorrencias[i].data)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaIntercorrencias[i].descricaoIntercorrencia)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaIntercorrencias[i].observacaoIntercorrencia)</td>
+                                                    </tr>
+                                                }
+                                                @*<tr>
+                                                    <td>12/04/2001</td>
+                                                    <td>Alergia a mosquitos</td>
+                                                    <td>Logo melhorou</td>
+                                                </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker-here').attr('data-language', 'pt-BR');
+        });
+    </script>
+
+}
+
+

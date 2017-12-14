@@ -1,0 +1,115 @@
+﻿@model CDSC.Models.VigilanciaDesenvolvimentoModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "VigilanciaDesenvolvimento", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Instrumento de vigilância do desenvolvimento</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3 class="panel-title">Marco de desenvolvimento:</h3>
+                                @Html.DropDownListFor(model => model.idMarcador, (SelectList)ViewBag.ListaMarcadoresDrop, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="panel-title">Idade:</h3>
+                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="panel-title">Status:</h3>
+                                @Html.DropDownListFor(model => model.statusMarcador, (SelectList)ViewBag.StatusMarcador, "Selecione...", new { @class = "form-control" })
+                            </div>
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "VigilanciaDesenvolvimento", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Marco de desenvolvimento</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Descrição</th>
+                                                    <th>1 mês</th>
+                                                    <th>2 mês</th>
+                                                    <th>3 mês</th>
+                                                    <th>4 mês</th>
+                                                    <th>5 mês</th>
+                                                    <th>6 mês</th>
+                                                    <th>7 mês</th>
+                                                    <th>8 mês</th>
+                                                    <th>9 mês</th>
+                                                    <th>10 mês</th>
+                                                    <th>11 mês</th>
+                                                    <th>12 mês</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaMarcadoresCrianca.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].descricaoMarcador)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes1)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes2)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes3)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes4)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes5)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes6)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes7)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes8)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes9)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes10)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes11)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMarcadoresCrianca[i].statusMarcadorMes12)</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+}
+
+

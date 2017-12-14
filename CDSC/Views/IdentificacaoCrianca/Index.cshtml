@@ -1,0 +1,244 @@
+﻿@model CDSC.Models.IdentificacaoCriancaModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "IdentificacaoCrianca", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Identificação Criança</h3>
+                        <p class="panel-subtitle">Período: @DateTime.Now</p>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Nome</h3>
+                                @Html.TextBoxFor(model => model.nomeCrianca, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Data de Nascimento</h3>
+                                @*@Html.HiddenFor(model => model.dataNascimento, new { @class = "form-control datepicker-here dataNascimentoHide", @style = "display: nome", @maxlength = "10" })*@
+                                @*<input type="text" data-language="pt-BR" class="form-control datepicker-here dataNascimento" onblur="$('.dataNascimentoHide').val($('.dataNascimento').val())">*@
+                                @Html.TextBoxFor(model => model.dataNascimento, new { @required = "required", @class = "form-control datepicker-here", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Município de Nascimento</h3>
+                                @Html.TextBoxFor(model => model.municipioNascimento, new { @validate = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Nome da Mãe</h3>
+                                @Html.TextBoxFor(model => model.nomeMae, new { @required = "required", @validate = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Nome do Pai</h3>
+                                @Html.TextBoxFor(model => model.nomePai, new { @validate = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Endereço</h3>
+                                @Html.TextBoxFor(model => model.endereco, new { @validate = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Ponto de Referência</h3>
+                                @Html.TextBoxFor(model => model.pontoReferencia, new { @validate = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+
+                            <div class="col-md-3 form-inline">
+                                <h3 class="panel-title">Sexo</h3>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.sexo, 1, new { @class = "control-radio", @name = "radioSexoCrianca", @required = "required" })<span><i></i>Masculino</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fancy-radio">
+                                        @Html.RadioButtonFor(m => Model.sexo, 2, new { @class = "control-radio", @name = "radioSexoCrianca" })<span><i></i>Feminino</span>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            @*<div class="col-md-3 form-inline">
+                                    <h3 class="panel-title">Sexo</h3>
+                                    <div class="form-group">
+                                        <label class="fancy-radio">
+                                            <input name="genero" value="male" type="radio">
+                                            <span><i></i>Masculino</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fancy-radio">
+                                            <input name="genero" value="female" type="radio">
+                                            <span><i></i>Feminino</span>
+                                        </label>
+                                    </div>
+                                </div>*@
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Telefone</h3>
+                                @Html.TextBoxFor(model => model.telefone, new { @class = "form-control telefone", @placeholder = "(99)99999-9999", @maxlength = "15" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Bairro</h3>
+                                @Html.TextBoxFor(model => model.bairro, new {  @class = "form-control", @placeholder = "bairro", @maxlength = "20" })
+                            </div>
+                            <div class="col-md-2">
+                                <h3 class="panel-title">Cep</h3>
+                                @Html.TextBoxFor(model => model.cep, new { @class = "form-control", @placeholder = "cep", @maxlength = "9" })
+                            </div>
+                            @*<div class="col-md-3">
+                                <h3 class="panel-title">UF</h3>
+                                
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Município</h3>
+                                
+
+                            </div>*@
+
+                            <div class="col-md-2">
+                                <h3 class="panel-title">Uf</h3>
+                                @Html.DropDownListFor(model => model.idUf, (SelectList)ViewBag.UF, "Selecione...", new { @required = "required", @class = "form-control ddluf" })
+                                @*<select class="form-control">
+                                    <option value="cheese">Selecione...</option>
+                                    <option value="tomatoes">Masculino</option>
+                                    <option value="mozarella">Feminino</option>
+                                </select>*@
+                            </div>
+                            <div class="col-md-2">
+                                <h3 class="panel-title">Municipio</h3>
+                                @Html.DropDownListFor(model => model.idMunicipio, (SelectList)ViewBag.Municipio, "Selecione...", new { @required = "required", @class = "form-control ddlmunicipio" })
+                                @*<select class="form-control">@required = "required",
+                                    <option value="cheese">Selecione...</option>
+                                    <option value="tomatoes">Masculino</option>
+                                    <option value="mozarella">Feminino</option>
+                                </select>*@
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Cor/Raça/Etnia</h3>
+                                @Html.DropDownListFor(model => model.etnia, (SelectList)ViewBag.Etnia, "Selecione...", new { @class = "form-control" })
+                                @*<select class="form-control">
+                                    <option value="cheese">Selecione...</option>
+                                    <option value="tomatoes">Branca</option>
+                                    <option value="mozarella">Negra</option>
+                                    <option value="mozarella">Amarela</option>
+                                    <option value="mozarella">Parda</option>
+                                    <option value="mozarella">Indigena</option>
+                                </select>*@
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Unidade Básica Que Frequenta</h3>
+                                @Html.TextBoxFor(model => model.unidadeBasicaQueFrequenta, new { @class = "form-control", @placeholder = "unidade básica de saúde", @maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Nº Prontuário na UBS</h3>
+                                @Html.TextBoxFor(model => model.numeroProntuarioUbs, new { @class = "form-control", @placeholder = "nº do prontuário", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Nº Declaração Nascido Vivo</h3>
+                                @Html.TextBoxFor(model => model.numeroDeclaracaoNascidoVivo, new { @class = "form-control", @placeholder = "nº nascido vivo", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Nº Reg. Civil de Nascimento</h3>
+                                @Html.TextBoxFor(model => model.numeroRegistroCivilNascimento, new { @class = "form-control", @placeholder = "registro civil", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Nº Cartão do SUS</h3>
+                                @Html.TextBoxFor(model => model.numeroCartaoSus, new { @class = "form-control", @placeholder = "nº cartão sus", @maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                                @*@Html.SubmitButton("Salvar", "Salvar", "Demanda", new { @group = "demanda", @class = "btn bt-padrao icon icon-floppy-disk botaoSubmit" })*@
+
+                                @*@Html.ActionLink("Salvar", "Salvar", "IdentificacaoCrianca", new { @class = "btn bt-padrao icon icon-floppy-disk botaoSubmit" })
+                                    @Html.ActionLink("Avançar", "Index", "MudancaEndereco", new { @class = "btn bt-padrao" })*@
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.datepicker-here').attr('data-language', 'pt-BR');
+            $(".telefone").mask("(99) 99999-9999");
+        });
+
+        $('.ddluf').change(function () {
+            var codigoUF = this.value;
+            if (codigoUF > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/IdentificacaoCrianca/CarregaMunicipios/")' + codigoUF,
+
+                    dataType: 'json',
+
+                    success: function (municipios) {
+                        $('.ddlmunicipio').find("option").remove();
+                        $('.ddlmunicipio').removeProp('disabled');
+                        $('.ddlmunicipio').append('<option value>Selecione...</option>');
+                        $.each(municipios, function (i, municipios) {
+                            $('.ddlmunicipio').append('<option value="' + municipios.Value + '">' +
+                                 municipios.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log('Consulta falhou ' + ex);
+                    }
+                });
+            } else {
+                $('.ddlmunicipio').find("option").remove();
+            }
+
+        });
+    </script>
+
+}
+
+

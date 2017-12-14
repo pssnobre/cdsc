@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cdscModelStoreContainer" CdmEntityContainer="cdscEntities">
+    <EntitySetMapping Name="afericao_pressao_arterial">
+      <EntityTypeMapping TypeName="cdscModel.afericao_pressao_arterial">
+        <MappingFragment StoreEntitySet="afericao_pressao_arterial">
+          <ScalarProperty Name="apa_ds_observacao" ColumnName="apa_ds_observacao" />
+          <ScalarProperty Name="apa_nr_pa_distolica" ColumnName="apa_nr_pa_distolica" />
+          <ScalarProperty Name="apa_nr_pa_sistolica" ColumnName="apa_nr_pa_sistolica" />
+          <ScalarProperty Name="apa_nr_idade" ColumnName="apa_nr_idade" />
+          <ScalarProperty Name="apa_dt_data" ColumnName="apa_dt_data" />
+          <ScalarProperty Name="apa_id_crianca" ColumnName="apa_id_crianca" />
+          <ScalarProperty Name="apa_id_afericao" ColumnName="apa_id_afericao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="alimentacao_crianca">
+      <EntityTypeMapping TypeName="cdscModel.alimentacao_crianca">
+        <MappingFragment StoreEntitySet="alimentacao_crianca">
+          <ScalarProperty Name="alc_ds_alimentacao" ColumnName="alc_ds_alimentacao" />
+          <ScalarProperty Name="alc_dt_data" ColumnName="alc_dt_data" />
+          <ScalarProperty Name="alc_id_alimentacao" ColumnName="alc_id_alimentacao" />
+          <ScalarProperty Name="alc_id_crianca" ColumnName="alc_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crianca">
+      <EntityTypeMapping TypeName="cdscModel.crianca">
+        <MappingFragment StoreEntitySet="crianca">
+          <ScalarProperty Name="cri_ds_foto" ColumnName="cri_ds_foto" />
+          <ScalarProperty Name="cri_nr_cartao_sus" ColumnName="cri_nr_cartao_sus" />
+          <ScalarProperty Name="cri_nr_registro_civil_nascimento" ColumnName="cri_nr_registro_civil_nascimento" />
+          <ScalarProperty Name="cri_nr_declaração_nascido_vivo" ColumnName="cri_nr_declaração_nascido_vivo" />
+          <ScalarProperty Name="cri_nr_prontuario" ColumnName="cri_nr_prontuario" />
+          <ScalarProperty Name="cri_ds_etnia" ColumnName="cri_ds_etnia" />
+          <ScalarProperty Name="cri_ds_sexo" ColumnName="cri_ds_sexo" />
+          <ScalarProperty Name="cri_nm_pai" ColumnName="cri_nm_pai" />
+          <ScalarProperty Name="cri_nm_mae" ColumnName="cri_nm_mae" />
+          <ScalarProperty Name="cri_dt_nascimento" ColumnName="cri_dt_nascimento" />
+          <ScalarProperty Name="cri_id_municipio_nascimento" ColumnName="cri_id_municipio_nascimento" />
+          <ScalarProperty Name="cri_ds_nome" ColumnName="cri_ds_nome" />
+          <ScalarProperty Name="cri_id_usuario_responsavel" ColumnName="cri_id_usuario_responsavel" />
+          <ScalarProperty Name="cri_id_crianca" ColumnName="cri_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crianca_usuario">
+      <EntityTypeMapping TypeName="cdscModel.crianca_usuario">
+        <MappingFragment StoreEntitySet="crianca_usuario">
+          <ScalarProperty Name="cru_id_crianca" ColumnName="cru_id_crianca" />
+          <ScalarProperty Name="cru_id_usuario" ColumnName="cru_id_usuario" />
+          <ScalarProperty Name="cru_id_criança_usuario" ColumnName="cru_id_criança_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="endereco">
+      <EntityTypeMapping TypeName="cdscModel.endereco">
+        <MappingFragment StoreEntitySet="endereco">
+          <ScalarProperty Name="end_dt_data" ColumnName="end_dt_data" />
+          <ScalarProperty Name="end_ds_unidade_basica_frequenta" ColumnName="end_ds_unidade_basica_frequenta" />
+          <ScalarProperty Name="end_id_municipio" ColumnName="end_id_municipio" />
+          <ScalarProperty Name="end_nr_cep" ColumnName="end_nr_cep" />
+          <ScalarProperty Name="end_ds_bairro" ColumnName="end_ds_bairro" />
+          <ScalarProperty Name="end_nr_telefone" ColumnName="end_nr_telefone" />
+          <ScalarProperty Name="end_ds_ponto_referencia" ColumnName="end_ds_ponto_referencia" />
+          <ScalarProperty Name="end_ds_endereco" ColumnName="end_ds_endereco" />
+          <ScalarProperty Name="end_id_crianca" ColumnName="end_id_crianca" />
+          <ScalarProperty Name="end_id_endereço" ColumnName="end_id_endereço" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="intercorrencias">
+      <EntityTypeMapping TypeName="cdscModel.intercorrencias">
+        <MappingFragment StoreEntitySet="intercorrencias">
+          <ScalarProperty Name="int_ds_observacoes" ColumnName="int_ds_observacoes" />
+          <ScalarProperty Name="int_ds_intercorrencia" ColumnName="int_ds_intercorrencia" />
+          <ScalarProperty Name="int_dt_data" ColumnName="int_dt_data" />
+          <ScalarProperty Name="int_id_intercorrencia" ColumnName="int_id_intercorrencia" />
+          <ScalarProperty Name="int_id_crianca" ColumnName="int_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcador_desenvolvimento">
+      <EntityTypeMapping TypeName="cdscModel.marcador_desenvolvimento">
+        <MappingFragment StoreEntitySet="marcador_desenvolvimento">
+          <ScalarProperty Name="mdv_ds_como_investigar" ColumnName="mdv_ds_como_investigar" />
+          <ScalarProperty Name="mdv_ds_marcador" ColumnName="mdv_ds_marcador" />
+          <ScalarProperty Name="mdv_id_marcador" ColumnName="mdv_id_marcador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcador_desenvolvimento_crianca">
+      <EntityTypeMapping TypeName="cdscModel.marcador_desenvolvimento_crianca">
+        <MappingFragment StoreEntitySet="marcador_desenvolvimento_crianca">
+          <ScalarProperty Name="mdc_ds_status" ColumnName="mdc_ds_status" />
+          <ScalarProperty Name="mdc_nr_idade" ColumnName="mdc_nr_idade" />
+          <ScalarProperty Name="mdc_id_crianca" ColumnName="mdc_id_crianca" />
+          <ScalarProperty Name="mdc_id_marcador" ColumnName="mdc_id_marcador" />
+          <ScalarProperty Name="mdc_id_marcador_crianca" ColumnName="mdc_id_marcador_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="cdscModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="men_ds_url" ColumnName="men_ds_url" />
+          <ScalarProperty Name="men_ds_menu" ColumnName="men_ds_menu" />
+          <ScalarProperty Name="men_id_menu" ColumnName="men_id_menu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="municipio">
+      <EntityTypeMapping TypeName="cdscModel.municipio">
+        <MappingFragment StoreEntitySet="municipio">
+          <ScalarProperty Name="mun_id_uf" ColumnName="mun_id_uf" />
+          <ScalarProperty Name="mun_ds_municipio" ColumnName="mun_ds_municipio" />
+          <ScalarProperty Name="mun_id_municipio" ColumnName="mun_id_municipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="outras_observacoes">
+      <EntityTypeMapping TypeName="cdscModel.outras_observacoes">
+        <MappingFragment StoreEntitySet="outras_observacoes">
+          <ScalarProperty Name="obs_ds_anotacao" ColumnName="obs_ds_anotacao" />
+          <ScalarProperty Name="obs_dt_data" ColumnName="obs_dt_data" />
+          <ScalarProperty Name="obs_id_observacoes" ColumnName="obs_id_observacoes" />
+          <ScalarProperty Name="obs_id_crianca" ColumnName="obs_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parto">
+      <EntityTypeMapping TypeName="cdscModel.parto">
+        <MappingFragment StoreEntitySet="parto">
+          <ScalarProperty Name="par_ds_intercorrencias_clinicas" ColumnName="par_ds_intercorrencias_clinicas" />
+          <ScalarProperty Name="par_st_megadose_vitamina_a" ColumnName="par_st_megadose_vitamina_a" />
+          <ScalarProperty Name="par_st_a53_periodo" ColumnName="par_st_a53_periodo" />
+          <ScalarProperty Name="par_st_a53_status" ColumnName="par_st_a53_status" />
+          <ScalarProperty Name="par_nr_z21_periodo" ColumnName="par_nr_z21_periodo" />
+          <ScalarProperty Name="par_st_z21_status" ColumnName="par_st_z21_status" />
+          <ScalarProperty Name="par_ds_indicacao" ColumnName="par_ds_indicacao" />
+          <ScalarProperty Name="par_tp_parto" ColumnName="par_tp_parto" />
+          <ScalarProperty Name="par_ds_local" ColumnName="par_ds_local" />
+          <ScalarProperty Name="par_id_crianca" ColumnName="par_id_crianca" />
+          <ScalarProperty Name="par_id_parto" ColumnName="par_id_parto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="perfil">
+      <EntityTypeMapping TypeName="cdscModel.perfil">
+        <MappingFragment StoreEntitySet="perfil">
+          <ScalarProperty Name="per_ds_perfil" ColumnName="per_ds_perfil" />
+          <ScalarProperty Name="per_id_perfil" ColumnName="per_id_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pre_natal">
+      <EntityTypeMapping TypeName="cdscModel.pre_natal">
+        <MappingFragment StoreEntitySet="pre_natal">
+          <ScalarProperty Name="prn_st_suplementação_ferro" ColumnName="prn_st_suplementação_ferro" />
+          <ScalarProperty Name="prn_st_imunização_dupla_adulto" ColumnName="prn_st_imunização_dupla_adulto" />
+          <ScalarProperty Name="prn_nr_b58_periodo" ColumnName="prn_nr_b58_periodo" />
+          <ScalarProperty Name="prn_st_b58_status" ColumnName="prn_st_b58_status" />
+          <ScalarProperty Name="prn_nr_b18_periodo" ColumnName="prn_nr_b18_periodo" />
+          <ScalarProperty Name="prn_st_b18_status" ColumnName="prn_st_b18_status" />
+          <ScalarProperty Name="prn_nr_a53_periodo" ColumnName="prn_nr_a53_periodo" />
+          <ScalarProperty Name="prn_st_a53_status" ColumnName="prn_st_a53_status" />
+          <ScalarProperty Name="prn_nr_z21_periodo" ColumnName="prn_nr_z21_periodo" />
+          <ScalarProperty Name="prn_st_z21_status" ColumnName="prn_st_z21_status" />
+          <ScalarProperty Name="prn_numero_consultas" ColumnName="prn_numero_consultas" />
+          <ScalarProperty Name="prn_nr_inicio_pre_natal" ColumnName="prn_nr_inicio_pre_natal" />
+          <ScalarProperty Name="prn_id_crianca" ColumnName="prn_id_crianca" />
+          <ScalarProperty Name="prn_id_pre_natal" ColumnName="prn_id_pre_natal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registro_medidas_antropometricas">
+      <EntityTypeMapping TypeName="cdscModel.registro_medidas_antropometricas">
+        <MappingFragment StoreEntitySet="registro_medidas_antropometricas">
+          <ScalarProperty Name="rma_nr_imc" ColumnName="rma_nr_imc" />
+          <ScalarProperty Name="rma_nr_perimetro_cefalico" ColumnName="rma_nr_perimetro_cefalico" />
+          <ScalarProperty Name="rma_nr_estatura" ColumnName="rma_nr_estatura" />
+          <ScalarProperty Name="rma_nr_peso" ColumnName="rma_nr_peso" />
+          <ScalarProperty Name="rma_nr_idade" ColumnName="rma_nr_idade" />
+          <ScalarProperty Name="rma_dt_registro" ColumnName="rma_dt_registro" />
+          <ScalarProperty Name="rma_id_crianca" ColumnName="rma_id_crianca" />
+          <ScalarProperty Name="rma_id_registro_medidas" ColumnName="rma_id_registro_medidas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saude_auditiva">
+      <EntityTypeMapping TypeName="cdscModel.saude_auditiva">
+        <MappingFragment StoreEntitySet="saude_auditiva">
+          <ScalarProperty Name="sau_st_nessidade_monitoramento_audicao" ColumnName="sau_st_nessidade_monitoramento_audicao" />
+          <ScalarProperty Name="sau_ds_encaminhamento" ColumnName="sau_ds_encaminhamento" />
+          <ScalarProperty Name="sau_st_resultado_oe" ColumnName="sau_st_resultado_oe" />
+          <ScalarProperty Name="sau_st_resultado_od" ColumnName="sau_st_resultado_od" />
+          <ScalarProperty Name="sau_dt_data" ColumnName="sau_dt_data" />
+          <ScalarProperty Name="sau_ds_local" ColumnName="sau_ds_local" />
+          <ScalarProperty Name="sau_st_imitanciometria" ColumnName="sau_st_imitanciometria" />
+          <ScalarProperty Name="sau_st_audiometria_tonal" ColumnName="sau_st_audiometria_tonal" />
+          <ScalarProperty Name="sau_nr_idade" ColumnName="sau_nr_idade" />
+          <ScalarProperty Name="sau_id_saude_auditiva" ColumnName="sau_id_saude_auditiva" />
+          <ScalarProperty Name="sau_id_crianca" ColumnName="sau_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saude_ocular">
+      <EntityTypeMapping TypeName="cdscModel.saude_ocular">
+        <MappingFragment StoreEntitySet="saude_ocular">
+          <ScalarProperty Name="sao_st_prescricao_oculos" ColumnName="sao_st_prescricao_oculos" />
+          <ScalarProperty Name="sao_st_disturbio_visual" ColumnName="sao_st_disturbio_visual" />
+          <ScalarProperty Name="sao_st_consulta_oftamologica" ColumnName="sao_st_consulta_oftamologica" />
+          <ScalarProperty Name="sao_st_resultado_tav" ColumnName="sao_st_resultado_tav" />
+          <ScalarProperty Name="sao_nr_periodo" ColumnName="sao_nr_periodo" />
+          <ScalarProperty Name="sao_id_saude_ocular" ColumnName="sao_id_saude_ocular" />
+          <ScalarProperty Name="sao_id_crianca" ColumnName="sao_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suplementacao_ferro">
+      <EntityTypeMapping TypeName="cdscModel.suplementacao_ferro">
+        <MappingFragment StoreEntitySet="suplementacao_ferro">
+          <ScalarProperty Name="suf_ds_local" ColumnName="suf_ds_local" />
+          <ScalarProperty Name="suf_dt_suplementacao" ColumnName="suf_dt_suplementacao" />
+          <ScalarProperty Name="suf_id_suplementacao_ferro" ColumnName="suf_id_suplementacao_ferro" />
+          <ScalarProperty Name="suf_id_crianca" ColumnName="suf_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suplementacao_vitamina_a">
+      <EntityTypeMapping TypeName="cdscModel.suplementacao_vitamina_a">
+        <MappingFragment StoreEntitySet="suplementacao_vitamina_a">
+          <ScalarProperty Name="sva_ds_local" ColumnName="sva_ds_local" />
+          <ScalarProperty Name="sva_dt_data" ColumnName="sva_dt_data" />
+          <ScalarProperty Name="sva_id_suplementacao_vitamina_a" ColumnName="sva_id_suplementacao_vitamina_a" />
+          <ScalarProperty Name="sva_id_crianca" ColumnName="sva_id_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uf">
+      <EntityTypeMapping TypeName="cdscModel.uf">
+        <MappingFragment StoreEntitySet="uf">
+          <ScalarProperty Name="uff_ds_sigla" ColumnName="uff_ds_sigla" />
+          <ScalarProperty Name="uff_ds_uf" ColumnName="uff_ds_uf" />
+          <ScalarProperty Name="uff_id_uf" ColumnName="uff_id_uf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="cdscModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="usu_id_perfil" ColumnName="usu_id_perfil" />
+          <ScalarProperty Name="usu_ds_senha" ColumnName="usu_ds_senha" />
+          <ScalarProperty Name="usu_ds_email" ColumnName="usu_ds_email" />
+          <ScalarProperty Name="usu_nr_telefone" ColumnName="usu_nr_telefone" />
+          <ScalarProperty Name="usu_ds_nome" ColumnName="usu_ds_nome" />
+          <ScalarProperty Name="usu_nr_cpf" ColumnName="usu_nr_cpf" />
+          <ScalarProperty Name="usu_id_usuario" ColumnName="usu_id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vacina">
+      <EntityTypeMapping TypeName="cdscModel.vacina">
+        <MappingFragment StoreEntitySet="vacina">
+          <ScalarProperty Name="vac_ds_vacina" ColumnName="vac_ds_vacina" />
+          <ScalarProperty Name="vac_id_vacina" ColumnName="vac_id_vacina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vacinas_crianca">
+      <EntityTypeMapping TypeName="cdscModel.vacinas_crianca">
+        <MappingFragment StoreEntitySet="vacinas_crianca">
+          <ScalarProperty Name="vcc_ds_unidade" ColumnName="vcc_ds_unidade" />
+          <ScalarProperty Name="vcc_nr_lote" ColumnName="vcc_nr_lote" />
+          <ScalarProperty Name="vcc_nr_dose" ColumnName="vcc_nr_dose" />
+          <ScalarProperty Name="vcc_dt_data" ColumnName="vcc_dt_data" />
+          <ScalarProperty Name="vcc_id_crianca" ColumnName="vcc_id_crianca" />
+          <ScalarProperty Name="vcc_id_vacina" ColumnName="vcc_id_vacina" />
+          <ScalarProperty Name="vcc_id_vacina_crianca" ColumnName="vcc_id_vacina_crianca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exames_triagem_neonatal">
+      <EntityTypeMapping TypeName="cdscModel.exames_triagem_neonatal">
+        <MappingFragment StoreEntitySet="exames_triagem_neonatal">
+          <ScalarProperty Name="etn_ds_conduta_triagem_auditiva_reteste" ColumnName="etn_ds_conduta_triagem_auditiva_reteste" />
+          <ScalarProperty Name="etn_st_resultado_oe_reteste" ColumnName="etn_st_resultado_oe_reteste" />
+          <ScalarProperty Name="etn_st_resultado_od_reteste" ColumnName="etn_st_resultado_od_reteste" />
+          <ScalarProperty Name="etn_ds_testes_realizados_auditivos_reteste" ColumnName="etn_ds_testes_realizados_auditivos_reteste" />
+          <ScalarProperty Name="etn_dt_reteste" ColumnName="etn_dt_reteste" />
+          <ScalarProperty Name="etn_st_reteste" ColumnName="etn_st_reteste" />
+          <ScalarProperty Name="etn_ds_conduta_triagem_auditiva" ColumnName="etn_ds_conduta_triagem_auditiva" />
+          <ScalarProperty Name="etn_st_resultado_oe" ColumnName="etn_st_resultado_oe" />
+          <ScalarProperty Name="etn_st_resultado_od" ColumnName="etn_st_resultado_od" />
+          <ScalarProperty Name="etn_ds_testes_realizados_auditivos" ColumnName="etn_ds_testes_realizados_auditivos" />
+          <ScalarProperty Name="etn_dt_triagem_auditiva" ColumnName="etn_dt_triagem_auditiva" />
+          <ScalarProperty Name="etn_st_triagem_auditiva" ColumnName="etn_st_triagem_auditiva" />
+          <ScalarProperty Name="etn_ds_outros" ColumnName="etn_ds_outros" />
+          <ScalarProperty Name="etn_st_anemia_falciforme" ColumnName="etn_st_anemia_falciforme" />
+          <ScalarProperty Name="etn_st_hipotireoidismo" ColumnName="etn_st_hipotireoidismo" />
+          <ScalarProperty Name="etn_st_fenilcitonuria" ColumnName="etn_st_fenilcitonuria" />
+          <ScalarProperty Name="etn_dt_teste_pezinho" ColumnName="etn_dt_teste_pezinho" />
+          <ScalarProperty Name="etn_st_teste_pezinho" ColumnName="etn_st_teste_pezinho" />
+          <ScalarProperty Name="etn_ds_conduta_reflexo_vermelho" ColumnName="etn_ds_conduta_reflexo_vermelho" />
+          <ScalarProperty Name="etn_st_teste_reflexo_vermelho" ColumnName="etn_st_teste_reflexo_vermelho" />
+          <ScalarProperty Name="etn_ds_conduta_ortolani" ColumnName="etn_ds_conduta_ortolani" />
+          <ScalarProperty Name="etn_st_manobra_ortolani" ColumnName="etn_st_manobra_ortolani" />
+          <ScalarProperty Name="etni_id_crianca" ColumnName="etni_id_crianca" />
+          <ScalarProperty Name="etn_id_exames_neonatal" ColumnName="etn_id_exames_neonatal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dados_alta">
+      <EntityTypeMapping TypeName="cdscModel.dados_alta">
+        <MappingFragment StoreEntitySet="dados_alta">
+          <ScalarProperty Name="dda_ds_anotacoes" ColumnName="dda_ds_anotacoes" />
+          <ScalarProperty Name="dda_ds_alimentacao" ColumnName="dda_ds_alimentacao" />
+          <ScalarProperty Name="dda_nr_peso" ColumnName="dda_nr_peso" />
+          <ScalarProperty Name="dda_dt_alta" ColumnName="dda_dt_alta" />
+          <ScalarProperty Name="ddai_id_crianca" ColumnName="ddai_id_crianca" />
+          <ScalarProperty Name="dda_id_alta" ColumnName="dda_id_alta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nascimento">
+      <EntityTypeMapping TypeName="cdscModel.nascimento">
+        <MappingFragment StoreEntitySet="nascimento">
+          <ScalarProperty Name="nas_nr_hora_nascimento" ColumnName="nas_nr_hora_nascimento" />
+          <ScalarProperty Name="nas_ds_profissional_assistiu" ColumnName="nas_ds_profissional_assistiu" />
+          <ScalarProperty Name="nas_st_aleitamento_primeira_hora" ColumnName="nas_st_aleitamento_primeira_hora" />
+          <ScalarProperty Name="nas_ds_tipo_sanguineo_mae" ColumnName="nas_ds_tipo_sanguineo_mae" />
+          <ScalarProperty Name="nas_ds_tipo_sanguineo" ColumnName="nas_ds_tipo_sanguineo" />
+          <ScalarProperty Name="nas_ds_metodo_avaliacao_ig" ColumnName="nas_ds_metodo_avaliacao_ig" />
+          <ScalarProperty Name="nas_nr_idade_gestacional_dias" ColumnName="nas_nr_idade_gestacional_dias" />
+          <ScalarProperty Name="nas_nr_idade_gestacional_semanas" ColumnName="nas_nr_idade_gestacional_semanas" />
+          <ScalarProperty Name="nas_ds_apagar_5_min" ColumnName="nas_ds_apagar_5_min" />
+          <ScalarProperty Name="nas_ds_apagar_1_min" ColumnName="nas_ds_apagar_1_min" />
+          <ScalarProperty Name="nas_ds_sexo" ColumnName="nas_ds_sexo" />
+          <ScalarProperty Name="nas_nr_perimetro_encefalico" ColumnName="nas_nr_perimetro_encefalico" />
+          <ScalarProperty Name="nas_nr_comprimento" ColumnName="nas_nr_comprimento" />
+          <ScalarProperty Name="nas_nr_peso" ColumnName="nas_nr_peso" />
+          <ScalarProperty Name="nas_id_municipio" ColumnName="nas_id_municipio" />
+          <ScalarProperty Name="nas_ds_maternidade" ColumnName="nas_ds_maternidade" />
+          <ScalarProperty Name="nas_dt_nascimento" ColumnName="nas_dt_nascimento" />
+          <ScalarProperty Name="nas_id_crianca" ColumnName="nas_id_crianca" />
+          <ScalarProperty Name="nas_id_nascimento" ColumnName="nas_id_nascimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

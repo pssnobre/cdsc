@@ -1,0 +1,2001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="cdscModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="afericao_pressao_arterial">
+          <Key>
+            <PropertyRef Name="apa_id_afericao" />
+          </Key>
+          <Property Name="apa_id_afericao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apa_id_crianca" Type="int" />
+          <Property Name="apa_dt_data" Type="date" />
+          <Property Name="apa_nr_idade" Type="int" />
+          <Property Name="apa_nr_pa_sistolica" Type="int" />
+          <Property Name="apa_nr_pa_distolica" Type="int" />
+          <Property Name="apa_ds_observacao" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="alimentacao_crianca">
+          <Key>
+            <PropertyRef Name="alc_id_alimentacao" />
+          </Key>
+          <Property Name="alc_id_crianca" Type="int" Nullable="false" />
+          <Property Name="alc_id_alimentacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alc_dt_data" Type="date" />
+          <Property Name="alc_ds_alimentacao" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="crianca">
+          <Key>
+            <PropertyRef Name="cri_id_crianca" />
+          </Key>
+          <Property Name="cri_id_crianca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cri_id_usuario_responsavel" Type="int" Nullable="false" />
+          <Property Name="cri_ds_nome" Type="varchar" MaxLength="50" />
+          <Property Name="cri_id_municipio_nascimento" Type="int" Nullable="false" />
+          <Property Name="cri_dt_nascimento" Type="date" />
+          <Property Name="cri_nm_mae" Type="varchar" MaxLength="50" />
+          <Property Name="cri_nm_pai" Type="varchar" MaxLength="50" />
+          <Property Name="cri_ds_sexo" Type="varchar" MaxLength="1" />
+          <Property Name="cri_ds_etnia" Type="varchar" MaxLength="1" />
+          <Property Name="cri_nr_prontuario" Type="varchar" MaxLength="20" />
+          <Property Name="cri_nr_declaração_nascido_vivo" Type="varchar" MaxLength="20" />
+          <Property Name="cri_nr_registro_civil_nascimento" Type="varchar" MaxLength="20" />
+          <Property Name="cri_nr_cartao_sus" Type="varchar" MaxLength="20" />
+          <Property Name="cri_ds_foto" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="crianca_usuario">
+          <Key>
+            <PropertyRef Name="cru_id_criança_usuario" />
+          </Key>
+          <Property Name="cru_id_criança_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cru_id_usuario" Type="int" Nullable="false" />
+          <Property Name="cru_id_crianca" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dados_alta">
+          <Key>
+            <PropertyRef Name="dda_id_alta" />
+          </Key>
+          <Property Name="dda_id_alta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ddai_id_crianca" Type="int" Nullable="false" />
+          <Property Name="dda_dt_alta" Type="date" />
+          <Property Name="dda_nr_peso" Type="float" />
+          <Property Name="dda_ds_alimentacao" Type="varchar" MaxLength="20" />
+          <Property Name="dda_ds_anotacoes" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="endereco">
+          <Key>
+            <PropertyRef Name="end_id_endereço" />
+          </Key>
+          <Property Name="end_id_endereço" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="end_id_crianca" Type="int" Nullable="false" />
+          <Property Name="end_ds_endereco" Type="varchar" MaxLength="50" />
+          <Property Name="end_ds_ponto_referencia" Type="varchar" MaxLength="20" />
+          <Property Name="end_nr_telefone" Type="varchar" MaxLength="11" />
+          <Property Name="end_ds_bairro" Type="varchar" MaxLength="20" />
+          <Property Name="end_nr_cep" Type="varchar" MaxLength="8" />
+          <Property Name="end_id_municipio" Type="int" />
+          <Property Name="end_ds_unidade_basica_frequenta" Type="varchar" MaxLength="50" />
+          <Property Name="end_dt_data" Type="date" />
+        </EntityType>
+        <EntityType Name="exames_triagem_neonatal">
+          <Key>
+            <PropertyRef Name="etn_id_exames_neonatal" />
+          </Key>
+          <Property Name="etn_id_exames_neonatal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="etni_id_crianca" Type="int" Nullable="false" />
+          <Property Name="etn_st_manobra_ortolani" Type="varchar" MaxLength="1" />
+          <Property Name="etn_ds_conduta_ortolani" Type="varchar" MaxLength="50" />
+          <Property Name="etn_st_teste_reflexo_vermelho" Type="varchar" MaxLength="1" />
+          <Property Name="etn_ds_conduta_reflexo_vermelho" Type="varchar" MaxLength="50" />
+          <Property Name="etn_st_teste_pezinho" Type="varchar" MaxLength="1" />
+          <Property Name="etn_dt_teste_pezinho" Type="date" />
+          <Property Name="etn_st_fenilcitonuria" Type="varchar" MaxLength="1" />
+          <Property Name="etn_st_hipotireoidismo" Type="varchar" MaxLength="1" />
+          <Property Name="etn_st_anemia_falciforme" Type="varchar" MaxLength="1" />
+          <Property Name="etn_ds_outros" Type="varchar" MaxLength="50" />
+          <Property Name="etn_st_triagem_auditiva" Type="varchar" MaxLength="1" />
+          <Property Name="etn_dt_triagem_auditiva" Type="date" />
+          <Property Name="etn_ds_testes_realizados_auditivos" Type="varchar" MaxLength="1" />
+          <Property Name="etn_st_resultado_od" Type="varchar" MaxLength="1" />
+          <Property Name="etn_st_resultado_oe" Type="varchar" MaxLength="1" />
+          <Property Name="etn_ds_conduta_triagem_auditiva" Type="varchar" MaxLength="50" />
+          <Property Name="etn_st_reteste" Type="varchar" MaxLength="1" />
+          <Property Name="etn_dt_reteste" Type="date" />
+          <Property Name="etn_ds_testes_realizados_auditivos_reteste" Type="varchar" MaxLength="1" />
+          <Property Name="etn_st_resultado_od_reteste" Type="varchar" MaxLength="1" />
+          <Property Name="etn_st_resultado_oe_reteste" Type="varchar" MaxLength="1" />
+          <Property Name="etn_ds_conduta_triagem_auditiva_reteste" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="intercorrencias">
+          <Key>
+            <PropertyRef Name="int_id_intercorrencia" />
+          </Key>
+          <Property Name="int_id_crianca" Type="int" Nullable="false" />
+          <Property Name="int_id_intercorrencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="int_dt_data" Type="date" />
+          <Property Name="int_ds_intercorrencia" Type="varchar" MaxLength="200" />
+          <Property Name="int_ds_observacoes" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="marcador_desenvolvimento">
+          <Key>
+            <PropertyRef Name="mdv_id_marcador" />
+          </Key>
+          <Property Name="mdv_id_marcador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mdv_ds_marcador" Type="varchar" MaxLength="200" />
+          <Property Name="mdv_ds_como_investigar" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="marcador_desenvolvimento_crianca">
+          <Key>
+            <PropertyRef Name="mdc_id_marcador_crianca" />
+          </Key>
+          <Property Name="mdc_id_marcador_crianca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mdc_id_marcador" Type="int" Nullable="false" />
+          <Property Name="mdc_id_crianca" Type="int" Nullable="false" />
+          <Property Name="mdc_nr_idade" Type="int" />
+          <Property Name="mdc_ds_status" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="men_id_menu" />
+          </Key>
+          <Property Name="men_id_menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="men_ds_menu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="men_ds_url" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="municipio">
+          <Key>
+            <PropertyRef Name="mun_id_municipio" />
+          </Key>
+          <Property Name="mun_id_municipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mun_ds_municipio" Type="varchar" MaxLength="50" />
+          <Property Name="mun_id_uf" Type="int" />
+        </EntityType>
+        <EntityType Name="nascimento">
+          <Key>
+            <PropertyRef Name="nas_id_nascimento" />
+          </Key>
+          <Property Name="nas_id_nascimento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nas_id_crianca" Type="int" Nullable="false" />
+          <Property Name="nas_dt_nascimento" Type="date" />
+          <Property Name="nas_ds_maternidade" Type="varchar" MaxLength="50" />
+          <Property Name="nas_id_municipio" Type="int" Nullable="false" />
+          <Property Name="nas_nr_peso" Type="float" />
+          <Property Name="nas_nr_comprimento" Type="float" />
+          <Property Name="nas_nr_perimetro_encefalico" Type="float" />
+          <Property Name="nas_ds_sexo" Type="varchar" MaxLength="1" />
+          <Property Name="nas_ds_apagar_1_min" Type="varchar" MaxLength="20" />
+          <Property Name="nas_ds_apagar_5_min" Type="varchar" MaxLength="20" />
+          <Property Name="nas_nr_idade_gestacional_semanas" Type="int" />
+          <Property Name="nas_nr_idade_gestacional_dias" Type="int" />
+          <Property Name="nas_ds_metodo_avaliacao_ig" Type="varchar" MaxLength="1" />
+          <Property Name="nas_ds_tipo_sanguineo" Type="varchar" MaxLength="2" />
+          <Property Name="nas_ds_tipo_sanguineo_mae" Type="varchar" MaxLength="2" />
+          <Property Name="nas_st_aleitamento_primeira_hora" Type="varchar" MaxLength="1" />
+          <Property Name="nas_ds_profissional_assistiu" Type="varchar" MaxLength="20" />
+          <Property Name="nas_nr_hora_nascimento" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="outras_observacoes">
+          <Key>
+            <PropertyRef Name="obs_id_observacoes" />
+          </Key>
+          <Property Name="obs_id_crianca" Type="int" Nullable="false" />
+          <Property Name="obs_id_observacoes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="obs_dt_data" Type="date" />
+          <Property Name="obs_ds_anotacao" Type="varchar" MaxLength="999" />
+        </EntityType>
+        <EntityType Name="parto">
+          <Key>
+            <PropertyRef Name="par_id_parto" />
+          </Key>
+          <Property Name="par_id_parto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="par_id_crianca" Type="int" Nullable="false" />
+          <Property Name="par_ds_local" Type="varchar" MaxLength="1" />
+          <Property Name="par_tp_parto" Type="varchar" MaxLength="1" />
+          <Property Name="par_ds_indicacao" Type="varchar" MaxLength="50" />
+          <Property Name="par_st_z21_status" Type="varchar" MaxLength="1" />
+          <Property Name="par_nr_z21_periodo" Type="int" />
+          <Property Name="par_st_a53_status" Type="varchar" MaxLength="1" />
+          <Property Name="par_st_a53_periodo" Type="int" />
+          <Property Name="par_st_megadose_vitamina_a" Type="varchar" MaxLength="1" />
+          <Property Name="par_ds_intercorrencias_clinicas" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="per_id_perfil" />
+          </Key>
+          <Property Name="per_id_perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="per_ds_perfil" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="pre_natal">
+          <Key>
+            <PropertyRef Name="prn_id_pre_natal" />
+          </Key>
+          <Property Name="prn_id_pre_natal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prn_id_crianca" Type="int" Nullable="false" />
+          <Property Name="prn_nr_inicio_pre_natal" Type="int" />
+          <Property Name="prn_numero_consultas" Type="int" />
+          <Property Name="prn_st_z21_status" Type="varchar" MaxLength="1" />
+          <Property Name="prn_nr_z21_periodo" Type="int" />
+          <Property Name="prn_st_a53_status" Type="varchar" MaxLength="1" />
+          <Property Name="prn_nr_a53_periodo" Type="int" />
+          <Property Name="prn_st_b18_status" Type="varchar" MaxLength="1" />
+          <Property Name="prn_nr_b18_periodo" Type="int" />
+          <Property Name="prn_st_b58_status" Type="varchar" MaxLength="1" />
+          <Property Name="prn_nr_b58_periodo" Type="int" />
+          <Property Name="prn_st_imunização_dupla_adulto" Type="varchar" MaxLength="1" />
+          <Property Name="prn_st_suplementação_ferro" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="registro_medidas_antropometricas">
+          <Key>
+            <PropertyRef Name="rma_id_registro_medidas" />
+          </Key>
+          <Property Name="rma_id_registro_medidas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rma_id_crianca" Type="int" Nullable="false" />
+          <Property Name="rma_dt_registro" Type="date" />
+          <Property Name="rma_nr_idade" Type="int" />
+          <Property Name="rma_nr_peso" Type="int" />
+          <Property Name="rma_nr_estatura" Type="int" />
+          <Property Name="rma_nr_perimetro_cefalico" Type="int" />
+          <Property Name="rma_nr_imc" Type="int" />
+        </EntityType>
+        <EntityType Name="saude_auditiva">
+          <Key>
+            <PropertyRef Name="sau_id_saude_auditiva" />
+          </Key>
+          <Property Name="sau_id_crianca" Type="int" Nullable="false" />
+          <Property Name="sau_id_saude_auditiva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sau_nr_idade" Type="int" />
+          <Property Name="sau_st_audiometria_tonal" Type="blob" />
+          <Property Name="sau_st_imitanciometria" Type="blob" />
+          <Property Name="sau_ds_local" Type="varchar" MaxLength="50" />
+          <Property Name="sau_dt_data" Type="date" />
+          <Property Name="sau_st_resultado_od" Type="blob" />
+          <Property Name="sau_st_resultado_oe" Type="blob" />
+          <Property Name="sau_ds_encaminhamento" Type="varchar" MaxLength="50" />
+          <Property Name="sau_st_nessidade_monitoramento_audicao" Type="blob" />
+        </EntityType>
+        <EntityType Name="saude_ocular">
+          <Key>
+            <PropertyRef Name="sao_id_saude_ocular" />
+          </Key>
+          <Property Name="sao_id_crianca" Type="int" Nullable="false" />
+          <Property Name="sao_id_saude_ocular" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sao_nr_periodo" Type="int" />
+          <Property Name="sao_st_resultado_tav" Type="varchar" MaxLength="1" />
+          <Property Name="sao_st_consulta_oftamologica" Type="blob" />
+          <Property Name="sao_st_disturbio_visual" Type="blob" />
+          <Property Name="sao_st_prescricao_oculos" Type="blob" />
+        </EntityType>
+        <EntityType Name="suplementacao_ferro">
+          <Key>
+            <PropertyRef Name="suf_id_suplementacao_ferro" />
+          </Key>
+          <Property Name="suf_id_crianca" Type="int" Nullable="false" />
+          <Property Name="suf_id_suplementacao_ferro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="suf_dt_suplementacao" Type="date" />
+          <Property Name="suf_ds_local" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="suplementacao_vitamina_a">
+          <Key>
+            <PropertyRef Name="sva_id_suplementacao_vitamina_a" />
+          </Key>
+          <Property Name="sva_id_crianca" Type="int" Nullable="false" />
+          <Property Name="sva_id_suplementacao_vitamina_a" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sva_dt_data" Type="date" />
+          <Property Name="sva_ds_local" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="uf">
+          <Key>
+            <PropertyRef Name="uff_id_uf" />
+          </Key>
+          <Property Name="uff_id_uf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uff_ds_uf" Type="varchar" MaxLength="50" />
+          <Property Name="uff_ds_sigla" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="usu_id_usuario" />
+          </Key>
+          <Property Name="usu_id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usu_nr_cpf" Type="varchar" MaxLength="11" />
+          <Property Name="usu_ds_nome" Type="varchar" MaxLength="50" />
+          <Property Name="usu_nr_telefone" Type="varchar" MaxLength="11" />
+          <Property Name="usu_ds_email" Type="varchar" MaxLength="50" />
+          <Property Name="usu_ds_senha" Type="varchar" MaxLength="20" />
+          <Property Name="usu_id_perfil" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vacina">
+          <Key>
+            <PropertyRef Name="vac_id_vacina" />
+          </Key>
+          <Property Name="vac_id_vacina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vac_ds_vacina" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="vacinas_crianca">
+          <Key>
+            <PropertyRef Name="vcc_id_vacina_crianca" />
+          </Key>
+          <Property Name="vcc_id_vacina_crianca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vcc_id_vacina" Type="int" Nullable="false" />
+          <Property Name="vcc_id_crianca" Type="int" Nullable="false" />
+          <Property Name="vcc_dt_data" Type="date" />
+          <Property Name="vcc_nr_dose" Type="varchar" MaxLength="1" />
+          <Property Name="vcc_nr_lote" Type="varchar" MaxLength="20" />
+          <Property Name="vcc_ds_unidade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="afericao_pressao_arterial_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="0..1" />
+          <End Role="afericao_pressao_arterial" Type="Self.afericao_pressao_arterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="afericao_pressao_arterial">
+              <PropertyRef Name="apa_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="alimentacao_crianca_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="alimentacao_crianca" Type="Self.alimentacao_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="alimentacao_crianca">
+              <PropertyRef Name="alc_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="crianca_ibfk_1">
+          <End Role="municipio" Type="Self.municipio" Multiplicity="1" />
+          <End Role="crianca" Type="Self.crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="crianca">
+              <PropertyRef Name="cri_id_municipio_nascimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="crianca_usuario_ibfk_1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="crianca_usuario" Type="Self.crianca_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="usu_id_usuario" />
+            </Principal>
+            <Dependent Role="crianca_usuario">
+              <PropertyRef Name="cru_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="crianca_usuario_ibfk_2">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="crianca_usuario" Type="Self.crianca_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="crianca_usuario">
+              <PropertyRef Name="cru_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dados_alta_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="dados_alta" Type="Self.dados_alta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="dados_alta">
+              <PropertyRef Name="ddai_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="endereco_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="endereco" Type="Self.endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="endereco">
+              <PropertyRef Name="end_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="endereco_ibfk_2">
+          <End Role="municipio" Type="Self.municipio" Multiplicity="0..1" />
+          <End Role="endereco" Type="Self.endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="endereco">
+              <PropertyRef Name="end_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="exames_triagem_neonatal_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="exames_triagem_neonatal" Type="Self.exames_triagem_neonatal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="exames_triagem_neonatal">
+              <PropertyRef Name="etni_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_crianca_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="crianca" Type="Self.crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="usu_id_usuario" />
+            </Principal>
+            <Dependent Role="crianca">
+              <PropertyRef Name="cri_id_usuario_responsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="intercorrencias_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="intercorrencias" Type="Self.intercorrencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="intercorrencias">
+              <PropertyRef Name="int_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marcador_desenvolvimento_crianca_ibfk_1">
+          <End Role="marcador_desenvolvimento" Type="Self.marcador_desenvolvimento" Multiplicity="1" />
+          <End Role="marcador_desenvolvimento_crianca" Type="Self.marcador_desenvolvimento_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marcador_desenvolvimento">
+              <PropertyRef Name="mdv_id_marcador" />
+            </Principal>
+            <Dependent Role="marcador_desenvolvimento_crianca">
+              <PropertyRef Name="mdc_id_marcador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marcador_desenvolvimento_crianca_ibfk_2">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="marcador_desenvolvimento_crianca" Type="Self.marcador_desenvolvimento_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="marcador_desenvolvimento_crianca">
+              <PropertyRef Name="mdc_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="municipio_ibfk_1">
+          <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+          <End Role="municipio" Type="Self.municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uf">
+              <PropertyRef Name="uff_id_uf" />
+            </Principal>
+            <Dependent Role="municipio">
+              <PropertyRef Name="mun_id_uf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nascimento_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="nascimento" Type="Self.nascimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="nascimento">
+              <PropertyRef Name="nas_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nascimento_ibfk_2">
+          <End Role="municipio" Type="Self.municipio" Multiplicity="1" />
+          <End Role="nascimento" Type="Self.nascimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="nascimento">
+              <PropertyRef Name="nas_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="outras_observacoes_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="outras_observacoes" Type="Self.outras_observacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="outras_observacoes">
+              <PropertyRef Name="obs_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="parto_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="parto" Type="Self.parto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="parto">
+              <PropertyRef Name="par_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pre_natal_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="pre_natal" Type="Self.pre_natal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="pre_natal">
+              <PropertyRef Name="prn_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="registro_medidas_antropometricas_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="registro_medidas_antropometricas" Type="Self.registro_medidas_antropometricas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="registro_medidas_antropometricas">
+              <PropertyRef Name="rma_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saude_auditiva_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="saude_auditiva" Type="Self.saude_auditiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="saude_auditiva">
+              <PropertyRef Name="sau_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saude_ocular_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="saude_ocular" Type="Self.saude_ocular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="saude_ocular">
+              <PropertyRef Name="sao_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suplementacao_ferro_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="suplementacao_ferro" Type="Self.suplementacao_ferro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="suplementacao_ferro">
+              <PropertyRef Name="suf_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suplementacao_vitamina_a_ibfk_1">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="suplementacao_vitamina_a" Type="Self.suplementacao_vitamina_a" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="suplementacao_vitamina_a">
+              <PropertyRef Name="sva_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_ibfk_1">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="per_id_perfil" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="usu_id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vacinas_crianca_ibfk_1">
+          <End Role="vacina" Type="Self.vacina" Multiplicity="1" />
+          <End Role="vacinas_crianca" Type="Self.vacinas_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vacina">
+              <PropertyRef Name="vac_id_vacina" />
+            </Principal>
+            <Dependent Role="vacinas_crianca">
+              <PropertyRef Name="vcc_id_vacina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vacinas_crianca_ibfk_2">
+          <End Role="crianca" Type="Self.crianca" Multiplicity="1" />
+          <End Role="vacinas_crianca" Type="Self.vacinas_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="vacinas_crianca">
+              <PropertyRef Name="vcc_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cdscModelStoreContainer">
+          <EntitySet Name="afericao_pressao_arterial" EntityType="Self.afericao_pressao_arterial" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="alimentacao_crianca" EntityType="Self.alimentacao_crianca" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="crianca" EntityType="Self.crianca" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="crianca_usuario" EntityType="Self.crianca_usuario" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="dados_alta" EntityType="Self.dados_alta" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="endereco" EntityType="Self.endereco" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="exames_triagem_neonatal" EntityType="Self.exames_triagem_neonatal" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="intercorrencias" EntityType="Self.intercorrencias" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="marcador_desenvolvimento" EntityType="Self.marcador_desenvolvimento" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="marcador_desenvolvimento_crianca" EntityType="Self.marcador_desenvolvimento_crianca" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="municipio" EntityType="Self.municipio" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="nascimento" EntityType="Self.nascimento" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="outras_observacoes" EntityType="Self.outras_observacoes" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="parto" EntityType="Self.parto" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="perfil" EntityType="Self.perfil" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="pre_natal" EntityType="Self.pre_natal" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="registro_medidas_antropometricas" EntityType="Self.registro_medidas_antropometricas" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="saude_auditiva" EntityType="Self.saude_auditiva" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="saude_ocular" EntityType="Self.saude_ocular" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="suplementacao_ferro" EntityType="Self.suplementacao_ferro" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="suplementacao_vitamina_a" EntityType="Self.suplementacao_vitamina_a" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="uf" EntityType="Self.uf" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="vacina" EntityType="Self.vacina" Schema="cdsc" store:Type="Tables" />
+          <EntitySet Name="vacinas_crianca" EntityType="Self.vacinas_crianca" Schema="cdsc" store:Type="Tables" />
+          <AssociationSet Name="afericao_pressao_arterial_ibfk_1" Association="Self.afericao_pressao_arterial_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="afericao_pressao_arterial" EntitySet="afericao_pressao_arterial" />
+          </AssociationSet>
+          <AssociationSet Name="alimentacao_crianca_ibfk_1" Association="Self.alimentacao_crianca_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="alimentacao_crianca" EntitySet="alimentacao_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="crianca_ibfk_1" Association="Self.crianca_ibfk_1">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="crianca" EntitySet="crianca" />
+          </AssociationSet>
+          <AssociationSet Name="crianca_usuario_ibfk_1" Association="Self.crianca_usuario_ibfk_1">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="crianca_usuario" EntitySet="crianca_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="crianca_usuario_ibfk_2" Association="Self.crianca_usuario_ibfk_2">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="crianca_usuario" EntitySet="crianca_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="dados_alta_ibfk_1" Association="Self.dados_alta_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="dados_alta" EntitySet="dados_alta" />
+          </AssociationSet>
+          <AssociationSet Name="endereco_ibfk_1" Association="Self.endereco_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="endereco" EntitySet="endereco" />
+          </AssociationSet>
+          <AssociationSet Name="endereco_ibfk_2" Association="Self.endereco_ibfk_2">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="endereco" EntitySet="endereco" />
+          </AssociationSet>
+          <AssociationSet Name="exames_triagem_neonatal_ibfk_1" Association="Self.exames_triagem_neonatal_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="exames_triagem_neonatal" EntitySet="exames_triagem_neonatal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_crianca_usuario" Association="Self.FK_crianca_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="crianca" EntitySet="crianca" />
+          </AssociationSet>
+          <AssociationSet Name="intercorrencias_ibfk_1" Association="Self.intercorrencias_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="intercorrencias" EntitySet="intercorrencias" />
+          </AssociationSet>
+          <AssociationSet Name="marcador_desenvolvimento_crianca_ibfk_1" Association="Self.marcador_desenvolvimento_crianca_ibfk_1">
+            <End Role="marcador_desenvolvimento" EntitySet="marcador_desenvolvimento" />
+            <End Role="marcador_desenvolvimento_crianca" EntitySet="marcador_desenvolvimento_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="marcador_desenvolvimento_crianca_ibfk_2" Association="Self.marcador_desenvolvimento_crianca_ibfk_2">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="marcador_desenvolvimento_crianca" EntitySet="marcador_desenvolvimento_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="municipio_ibfk_1" Association="Self.municipio_ibfk_1">
+            <End Role="uf" EntitySet="uf" />
+            <End Role="municipio" EntitySet="municipio" />
+          </AssociationSet>
+          <AssociationSet Name="nascimento_ibfk_1" Association="Self.nascimento_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="nascimento" EntitySet="nascimento" />
+          </AssociationSet>
+          <AssociationSet Name="nascimento_ibfk_2" Association="Self.nascimento_ibfk_2">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="nascimento" EntitySet="nascimento" />
+          </AssociationSet>
+          <AssociationSet Name="outras_observacoes_ibfk_1" Association="Self.outras_observacoes_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="outras_observacoes" EntitySet="outras_observacoes" />
+          </AssociationSet>
+          <AssociationSet Name="parto_ibfk_1" Association="Self.parto_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="parto" EntitySet="parto" />
+          </AssociationSet>
+          <AssociationSet Name="pre_natal_ibfk_1" Association="Self.pre_natal_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="pre_natal" EntitySet="pre_natal" />
+          </AssociationSet>
+          <AssociationSet Name="registro_medidas_antropometricas_ibfk_1" Association="Self.registro_medidas_antropometricas_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="registro_medidas_antropometricas" EntitySet="registro_medidas_antropometricas" />
+          </AssociationSet>
+          <AssociationSet Name="saude_auditiva_ibfk_1" Association="Self.saude_auditiva_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="saude_auditiva" EntitySet="saude_auditiva" />
+          </AssociationSet>
+          <AssociationSet Name="saude_ocular_ibfk_1" Association="Self.saude_ocular_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="saude_ocular" EntitySet="saude_ocular" />
+          </AssociationSet>
+          <AssociationSet Name="suplementacao_ferro_ibfk_1" Association="Self.suplementacao_ferro_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="suplementacao_ferro" EntitySet="suplementacao_ferro" />
+          </AssociationSet>
+          <AssociationSet Name="suplementacao_vitamina_a_ibfk_1" Association="Self.suplementacao_vitamina_a_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="suplementacao_vitamina_a" EntitySet="suplementacao_vitamina_a" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_ibfk_1" Association="Self.usuario_ibfk_1">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="vacinas_crianca_ibfk_1" Association="Self.vacinas_crianca_ibfk_1">
+            <End Role="vacina" EntitySet="vacina" />
+            <End Role="vacinas_crianca" EntitySet="vacinas_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="vacinas_crianca_ibfk_2" Association="Self.vacinas_crianca_ibfk_2">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="vacinas_crianca" EntitySet="vacinas_crianca" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cdscModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="cdscEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="afericao_pressao_arterial" EntityType="cdscModel.afericao_pressao_arterial" />
+          <EntitySet Name="alimentacao_crianca" EntityType="cdscModel.alimentacao_crianca" />
+          <EntitySet Name="crianca" EntityType="cdscModel.crianca" />
+          <EntitySet Name="crianca_usuario" EntityType="cdscModel.crianca_usuario" />
+          <EntitySet Name="endereco" EntityType="cdscModel.endereco" />
+          <EntitySet Name="intercorrencias" EntityType="cdscModel.intercorrencias" />
+          <EntitySet Name="marcador_desenvolvimento" EntityType="cdscModel.marcador_desenvolvimento" />
+          <EntitySet Name="marcador_desenvolvimento_crianca" EntityType="cdscModel.marcador_desenvolvimento_crianca" />
+          <EntitySet Name="menu" EntityType="cdscModel.menu" />
+          <EntitySet Name="municipio" EntityType="cdscModel.municipio" />
+          <EntitySet Name="outras_observacoes" EntityType="cdscModel.outras_observacoes" />
+          <EntitySet Name="parto" EntityType="cdscModel.parto" />
+          <EntitySet Name="perfil" EntityType="cdscModel.perfil" />
+          <EntitySet Name="pre_natal" EntityType="cdscModel.pre_natal" />
+          <EntitySet Name="registro_medidas_antropometricas" EntityType="cdscModel.registro_medidas_antropometricas" />
+          <EntitySet Name="saude_auditiva" EntityType="cdscModel.saude_auditiva" />
+          <EntitySet Name="saude_ocular" EntityType="cdscModel.saude_ocular" />
+          <EntitySet Name="suplementacao_ferro" EntityType="cdscModel.suplementacao_ferro" />
+          <EntitySet Name="suplementacao_vitamina_a" EntityType="cdscModel.suplementacao_vitamina_a" />
+          <EntitySet Name="uf" EntityType="cdscModel.uf" />
+          <EntitySet Name="usuario" EntityType="cdscModel.usuario" />
+          <EntitySet Name="vacina" EntityType="cdscModel.vacina" />
+          <EntitySet Name="vacinas_crianca" EntityType="cdscModel.vacinas_crianca" />
+          <AssociationSet Name="afericao_pressao_arterial_ibfk_1" Association="cdscModel.afericao_pressao_arterial_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="afericao_pressao_arterial" EntitySet="afericao_pressao_arterial" />
+          </AssociationSet>
+          <AssociationSet Name="alimentacao_crianca_ibfk_1" Association="cdscModel.alimentacao_crianca_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="alimentacao_crianca" EntitySet="alimentacao_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="crianca_ibfk_1" Association="cdscModel.crianca_ibfk_1">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="crianca" EntitySet="crianca" />
+          </AssociationSet>
+          <AssociationSet Name="crianca_usuario_ibfk_2" Association="cdscModel.crianca_usuario_ibfk_2">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="crianca_usuario" EntitySet="crianca_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="endereco_ibfk_1" Association="cdscModel.endereco_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="endereco" EntitySet="endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_crianca_usuario" Association="cdscModel.FK_crianca_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="crianca" EntitySet="crianca" />
+          </AssociationSet>
+          <AssociationSet Name="intercorrencias_ibfk_1" Association="cdscModel.intercorrencias_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="intercorrencias" EntitySet="intercorrencias" />
+          </AssociationSet>
+          <AssociationSet Name="marcador_desenvolvimento_crianca_ibfk_2" Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_2">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="marcador_desenvolvimento_crianca" EntitySet="marcador_desenvolvimento_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="outras_observacoes_ibfk_1" Association="cdscModel.outras_observacoes_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="outras_observacoes" EntitySet="outras_observacoes" />
+          </AssociationSet>
+          <AssociationSet Name="parto_ibfk_1" Association="cdscModel.parto_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="parto" EntitySet="parto" />
+          </AssociationSet>
+          <AssociationSet Name="pre_natal_ibfk_1" Association="cdscModel.pre_natal_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="pre_natal" EntitySet="pre_natal" />
+          </AssociationSet>
+          <AssociationSet Name="registro_medidas_antropometricas_ibfk_1" Association="cdscModel.registro_medidas_antropometricas_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="registro_medidas_antropometricas" EntitySet="registro_medidas_antropometricas" />
+          </AssociationSet>
+          <AssociationSet Name="saude_auditiva_ibfk_1" Association="cdscModel.saude_auditiva_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="saude_auditiva" EntitySet="saude_auditiva" />
+          </AssociationSet>
+          <AssociationSet Name="saude_ocular_ibfk_1" Association="cdscModel.saude_ocular_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="saude_ocular" EntitySet="saude_ocular" />
+          </AssociationSet>
+          <AssociationSet Name="suplementacao_ferro_ibfk_1" Association="cdscModel.suplementacao_ferro_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="suplementacao_ferro" EntitySet="suplementacao_ferro" />
+          </AssociationSet>
+          <AssociationSet Name="suplementacao_vitamina_a_ibfk_1" Association="cdscModel.suplementacao_vitamina_a_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="suplementacao_vitamina_a" EntitySet="suplementacao_vitamina_a" />
+          </AssociationSet>
+          <AssociationSet Name="vacinas_crianca_ibfk_2" Association="cdscModel.vacinas_crianca_ibfk_2">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="vacinas_crianca" EntitySet="vacinas_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="crianca_usuario_ibfk_1" Association="cdscModel.crianca_usuario_ibfk_1">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="crianca_usuario" EntitySet="crianca_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="endereco_ibfk_2" Association="cdscModel.endereco_ibfk_2">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="endereco" EntitySet="endereco" />
+          </AssociationSet>
+          <AssociationSet Name="marcador_desenvolvimento_crianca_ibfk_1" Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_1">
+            <End Role="marcador_desenvolvimento" EntitySet="marcador_desenvolvimento" />
+            <End Role="marcador_desenvolvimento_crianca" EntitySet="marcador_desenvolvimento_crianca" />
+          </AssociationSet>
+          <AssociationSet Name="municipio_ibfk_1" Association="cdscModel.municipio_ibfk_1">
+            <End Role="uf" EntitySet="uf" />
+            <End Role="municipio" EntitySet="municipio" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_ibfk_1" Association="cdscModel.usuario_ibfk_1">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="vacinas_crianca_ibfk_1" Association="cdscModel.vacinas_crianca_ibfk_1">
+            <End Role="vacina" EntitySet="vacina" />
+            <End Role="vacinas_crianca" EntitySet="vacinas_crianca" />
+          </AssociationSet>
+          <EntitySet Name="exames_triagem_neonatal" EntityType="cdscModel.exames_triagem_neonatal" />
+          <AssociationSet Name="exames_triagem_neonatal_ibfk_1" Association="cdscModel.exames_triagem_neonatal_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="exames_triagem_neonatal" EntitySet="exames_triagem_neonatal" />
+          </AssociationSet>
+          <EntitySet Name="dados_alta" EntityType="cdscModel.dados_alta" />
+          <AssociationSet Name="dados_alta_ibfk_1" Association="cdscModel.dados_alta_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="dados_alta" EntitySet="dados_alta" />
+          </AssociationSet>
+          <EntitySet Name="nascimento" EntityType="cdscModel.nascimento" />
+          <AssociationSet Name="nascimento_ibfk_1" Association="cdscModel.nascimento_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="nascimento" EntitySet="nascimento" />
+          </AssociationSet>
+          <AssociationSet Name="nascimento_ibfk_2" Association="cdscModel.nascimento_ibfk_2">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="nascimento" EntitySet="nascimento" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="afericao_pressao_arterial">
+          <Key>
+            <PropertyRef Name="apa_id_afericao" />
+          </Key>
+          <Property Name="apa_id_afericao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apa_id_crianca" Type="Int32" />
+          <Property Name="apa_dt_data" Type="DateTime" />
+          <Property Name="apa_nr_idade" Type="Int32" />
+          <Property Name="apa_nr_pa_sistolica" Type="Int32" />
+          <Property Name="apa_nr_pa_distolica" Type="Int32" />
+          <Property Name="apa_ds_observacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.afericao_pressao_arterial_ibfk_1" FromRole="afericao_pressao_arterial" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="alimentacao_crianca">
+          <Key>
+            <PropertyRef Name="alc_id_alimentacao" />
+          </Key>
+          <Property Name="alc_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="alc_id_alimentacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alc_dt_data" Type="DateTime" />
+          <Property Name="alc_ds_alimentacao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.alimentacao_crianca_ibfk_1" FromRole="alimentacao_crianca" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="crianca">
+          <Key>
+            <PropertyRef Name="cri_id_crianca" />
+          </Key>
+          <Property Name="cri_id_crianca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cri_id_usuario_responsavel" Type="Int32" Nullable="false" />
+          <Property Name="cri_ds_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cri_id_municipio_nascimento" Type="Int32" Nullable="false" />
+          <Property Name="cri_dt_nascimento" Type="DateTime" />
+          <Property Name="cri_nm_mae" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cri_nm_pai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cri_ds_sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="cri_ds_etnia" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="cri_nr_prontuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cri_nr_declaração_nascido_vivo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cri_nr_registro_civil_nascimento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cri_nr_cartao_sus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cri_ds_foto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="afericao_pressao_arterial" Relationship="cdscModel.afericao_pressao_arterial_ibfk_1" FromRole="crianca" ToRole="afericao_pressao_arterial" />
+          <NavigationProperty Name="alimentacao_crianca" Relationship="cdscModel.alimentacao_crianca_ibfk_1" FromRole="crianca" ToRole="alimentacao_crianca" />
+          <NavigationProperty Name="municipio" Relationship="cdscModel.crianca_ibfk_1" FromRole="crianca" ToRole="municipio" />
+          <NavigationProperty Name="crianca_usuario" Relationship="cdscModel.crianca_usuario_ibfk_2" FromRole="crianca" ToRole="crianca_usuario" />
+          <NavigationProperty Name="endereco" Relationship="cdscModel.endereco_ibfk_1" FromRole="crianca" ToRole="endereco" />
+          <NavigationProperty Name="usuario" Relationship="cdscModel.FK_crianca_usuario" FromRole="crianca" ToRole="usuario" />
+          <NavigationProperty Name="intercorrencias" Relationship="cdscModel.intercorrencias_ibfk_1" FromRole="crianca" ToRole="intercorrencias" />
+          <NavigationProperty Name="marcador_desenvolvimento_crianca" Relationship="cdscModel.marcador_desenvolvimento_crianca_ibfk_2" FromRole="crianca" ToRole="marcador_desenvolvimento_crianca" />
+          <NavigationProperty Name="outras_observacoes" Relationship="cdscModel.outras_observacoes_ibfk_1" FromRole="crianca" ToRole="outras_observacoes" />
+          <NavigationProperty Name="parto" Relationship="cdscModel.parto_ibfk_1" FromRole="crianca" ToRole="parto" />
+          <NavigationProperty Name="pre_natal" Relationship="cdscModel.pre_natal_ibfk_1" FromRole="crianca" ToRole="pre_natal" />
+          <NavigationProperty Name="registro_medidas_antropometricas" Relationship="cdscModel.registro_medidas_antropometricas_ibfk_1" FromRole="crianca" ToRole="registro_medidas_antropometricas" />
+          <NavigationProperty Name="saude_auditiva" Relationship="cdscModel.saude_auditiva_ibfk_1" FromRole="crianca" ToRole="saude_auditiva" />
+          <NavigationProperty Name="saude_ocular" Relationship="cdscModel.saude_ocular_ibfk_1" FromRole="crianca" ToRole="saude_ocular" />
+          <NavigationProperty Name="suplementacao_ferro" Relationship="cdscModel.suplementacao_ferro_ibfk_1" FromRole="crianca" ToRole="suplementacao_ferro" />
+          <NavigationProperty Name="suplementacao_vitamina_a" Relationship="cdscModel.suplementacao_vitamina_a_ibfk_1" FromRole="crianca" ToRole="suplementacao_vitamina_a" />
+          <NavigationProperty Name="vacinas_crianca" Relationship="cdscModel.vacinas_crianca_ibfk_2" FromRole="crianca" ToRole="vacinas_crianca" />
+          <NavigationProperty Name="exames_triagem_neonatal" Relationship="cdscModel.exames_triagem_neonatal_ibfk_1" FromRole="crianca" ToRole="exames_triagem_neonatal" />
+          <NavigationProperty Name="dados_alta" Relationship="cdscModel.dados_alta_ibfk_1" FromRole="crianca" ToRole="dados_alta" />
+          <NavigationProperty Name="nascimento" Relationship="cdscModel.nascimento_ibfk_1" FromRole="crianca" ToRole="nascimento" />
+        </EntityType>
+        <EntityType Name="crianca_usuario">
+          <Key>
+            <PropertyRef Name="cru_id_criança_usuario" />
+          </Key>
+          <Property Name="cru_id_criança_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cru_id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="cru_id_crianca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.crianca_usuario_ibfk_2" FromRole="crianca_usuario" ToRole="crianca" />
+          <NavigationProperty Name="usuario" Relationship="cdscModel.crianca_usuario_ibfk_1" FromRole="crianca_usuario" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="endereco">
+          <Key>
+            <PropertyRef Name="end_id_endereço" />
+          </Key>
+          <Property Name="end_id_endereço" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="end_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="end_ds_endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="end_ds_ponto_referencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="end_nr_telefone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="end_ds_bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="end_nr_cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="end_id_municipio" Type="Int32" />
+          <Property Name="end_ds_unidade_basica_frequenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="end_dt_data" Type="DateTime" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.endereco_ibfk_1" FromRole="endereco" ToRole="crianca" />
+          <NavigationProperty Name="municipio" Relationship="cdscModel.endereco_ibfk_2" FromRole="endereco" ToRole="municipio" />
+        </EntityType>
+        <EntityType Name="intercorrencias">
+          <Key>
+            <PropertyRef Name="int_id_intercorrencia" />
+          </Key>
+          <Property Name="int_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="int_id_intercorrencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="int_dt_data" Type="DateTime" />
+          <Property Name="int_ds_intercorrencia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="int_ds_observacoes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.intercorrencias_ibfk_1" FromRole="intercorrencias" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="marcador_desenvolvimento">
+          <Key>
+            <PropertyRef Name="mdv_id_marcador" />
+          </Key>
+          <Property Name="mdv_id_marcador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mdv_ds_marcador" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="mdv_ds_como_investigar" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="marcador_desenvolvimento_crianca" Relationship="cdscModel.marcador_desenvolvimento_crianca_ibfk_1" FromRole="marcador_desenvolvimento" ToRole="marcador_desenvolvimento_crianca" />
+        </EntityType>
+        <EntityType Name="marcador_desenvolvimento_crianca">
+          <Key>
+            <PropertyRef Name="mdc_id_marcador_crianca" />
+          </Key>
+          <Property Name="mdc_id_marcador_crianca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mdc_id_marcador" Type="Int32" Nullable="false" />
+          <Property Name="mdc_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="mdc_nr_idade" Type="Int32" />
+          <Property Name="mdc_ds_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.marcador_desenvolvimento_crianca_ibfk_2" FromRole="marcador_desenvolvimento_crianca" ToRole="crianca" />
+          <NavigationProperty Name="marcador_desenvolvimento" Relationship="cdscModel.marcador_desenvolvimento_crianca_ibfk_1" FromRole="marcador_desenvolvimento_crianca" ToRole="marcador_desenvolvimento" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="men_id_menu" />
+          </Key>
+          <Property Name="men_id_menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="men_ds_menu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="men_ds_url" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="municipio">
+          <Key>
+            <PropertyRef Name="mun_id_municipio" />
+          </Key>
+          <Property Name="mun_id_municipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mun_ds_municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mun_id_uf" Type="Int32" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.crianca_ibfk_1" FromRole="municipio" ToRole="crianca" />
+          <NavigationProperty Name="endereco" Relationship="cdscModel.endereco_ibfk_2" FromRole="municipio" ToRole="endereco" />
+          <NavigationProperty Name="uf" Relationship="cdscModel.municipio_ibfk_1" FromRole="municipio" ToRole="uf" />
+          <NavigationProperty Name="nascimento" Relationship="cdscModel.nascimento_ibfk_2" FromRole="municipio" ToRole="nascimento" />
+        </EntityType>
+        <EntityType Name="outras_observacoes">
+          <Key>
+            <PropertyRef Name="obs_id_observacoes" />
+          </Key>
+          <Property Name="obs_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="obs_id_observacoes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="obs_dt_data" Type="DateTime" />
+          <Property Name="obs_ds_anotacao" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.outras_observacoes_ibfk_1" FromRole="outras_observacoes" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="parto">
+          <Key>
+            <PropertyRef Name="par_id_parto" />
+          </Key>
+          <Property Name="par_id_parto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="par_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="par_ds_local" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="par_tp_parto" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="par_ds_indicacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="par_st_z21_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="par_nr_z21_periodo" Type="Int32" />
+          <Property Name="par_st_a53_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="par_st_a53_periodo" Type="Int32" />
+          <Property Name="par_st_megadose_vitamina_a" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="par_ds_intercorrencias_clinicas" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.parto_ibfk_1" FromRole="parto" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="per_id_perfil" />
+          </Key>
+          <Property Name="per_id_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="per_ds_perfil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="usuario" Relationship="cdscModel.usuario_ibfk_1" FromRole="perfil" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="pre_natal">
+          <Key>
+            <PropertyRef Name="prn_id_pre_natal" />
+          </Key>
+          <Property Name="prn_id_pre_natal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prn_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="prn_nr_inicio_pre_natal" Type="Int32" />
+          <Property Name="prn_numero_consultas" Type="Int32" />
+          <Property Name="prn_st_z21_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="prn_nr_z21_periodo" Type="Int32" />
+          <Property Name="prn_st_a53_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="prn_nr_a53_periodo" Type="Int32" />
+          <Property Name="prn_st_b18_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="prn_nr_b18_periodo" Type="Int32" />
+          <Property Name="prn_st_b58_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="prn_nr_b58_periodo" Type="Int32" />
+          <Property Name="prn_st_imunização_dupla_adulto" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="prn_st_suplementação_ferro" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.pre_natal_ibfk_1" FromRole="pre_natal" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="registro_medidas_antropometricas">
+          <Key>
+            <PropertyRef Name="rma_id_registro_medidas" />
+          </Key>
+          <Property Name="rma_id_registro_medidas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rma_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="rma_dt_registro" Type="DateTime" />
+          <Property Name="rma_nr_idade" Type="Int32" />
+          <Property Name="rma_nr_peso" Type="Int32" />
+          <Property Name="rma_nr_estatura" Type="Int32" />
+          <Property Name="rma_nr_perimetro_cefalico" Type="Int32" />
+          <Property Name="rma_nr_imc" Type="Int32" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.registro_medidas_antropometricas_ibfk_1" FromRole="registro_medidas_antropometricas" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="saude_auditiva">
+          <Key>
+            <PropertyRef Name="sau_id_saude_auditiva" />
+          </Key>
+          <Property Name="sau_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="sau_id_saude_auditiva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sau_nr_idade" Type="Int32" />
+          <Property Name="sau_st_audiometria_tonal" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sau_st_imitanciometria" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sau_ds_local" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sau_dt_data" Type="DateTime" />
+          <Property Name="sau_st_resultado_od" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sau_st_resultado_oe" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sau_ds_encaminhamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sau_st_nessidade_monitoramento_audicao" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.saude_auditiva_ibfk_1" FromRole="saude_auditiva" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="saude_ocular">
+          <Key>
+            <PropertyRef Name="sao_id_saude_ocular" />
+          </Key>
+          <Property Name="sao_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="sao_id_saude_ocular" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sao_nr_periodo" Type="Int32" />
+          <Property Name="sao_st_resultado_tav" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="sao_st_consulta_oftamologica" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sao_st_disturbio_visual" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sao_st_prescricao_oculos" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.saude_ocular_ibfk_1" FromRole="saude_ocular" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="suplementacao_ferro">
+          <Key>
+            <PropertyRef Name="suf_id_suplementacao_ferro" />
+          </Key>
+          <Property Name="suf_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="suf_id_suplementacao_ferro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="suf_dt_suplementacao" Type="DateTime" />
+          <Property Name="suf_ds_local" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.suplementacao_ferro_ibfk_1" FromRole="suplementacao_ferro" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="suplementacao_vitamina_a">
+          <Key>
+            <PropertyRef Name="sva_id_suplementacao_vitamina_a" />
+          </Key>
+          <Property Name="sva_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="sva_id_suplementacao_vitamina_a" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sva_dt_data" Type="DateTime" />
+          <Property Name="sva_ds_local" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.suplementacao_vitamina_a_ibfk_1" FromRole="suplementacao_vitamina_a" ToRole="crianca" />
+        </EntityType>
+        <EntityType Name="uf">
+          <Key>
+            <PropertyRef Name="uff_id_uf" />
+          </Key>
+          <Property Name="uff_id_uf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uff_ds_uf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uff_ds_sigla" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="municipio" Relationship="cdscModel.municipio_ibfk_1" FromRole="uf" ToRole="municipio" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="usu_id_usuario" />
+          </Key>
+          <Property Name="usu_id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usu_nr_cpf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usu_nr_telefone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usu_ds_senha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="usu_id_perfil" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.FK_crianca_usuario" FromRole="usuario" ToRole="crianca" />
+          <NavigationProperty Name="crianca_usuario" Relationship="cdscModel.crianca_usuario_ibfk_1" FromRole="usuario" ToRole="crianca_usuario" />
+          <NavigationProperty Name="perfil" Relationship="cdscModel.usuario_ibfk_1" FromRole="usuario" ToRole="perfil" />
+        </EntityType>
+        <EntityType Name="vacina">
+          <Key>
+            <PropertyRef Name="vac_id_vacina" />
+          </Key>
+          <Property Name="vac_id_vacina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vac_ds_vacina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vacinas_crianca" Relationship="cdscModel.vacinas_crianca_ibfk_1" FromRole="vacina" ToRole="vacinas_crianca" />
+        </EntityType>
+        <EntityType Name="vacinas_crianca">
+          <Key>
+            <PropertyRef Name="vcc_id_vacina_crianca" />
+          </Key>
+          <Property Name="vcc_id_vacina_crianca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vcc_id_vacina" Type="Int32" Nullable="false" />
+          <Property Name="vcc_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="vcc_dt_data" Type="DateTime" />
+          <Property Name="vcc_nr_dose" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="vcc_nr_lote" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vcc_ds_unidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.vacinas_crianca_ibfk_2" FromRole="vacinas_crianca" ToRole="crianca" />
+          <NavigationProperty Name="vacina" Relationship="cdscModel.vacinas_crianca_ibfk_1" FromRole="vacinas_crianca" ToRole="vacina" />
+        </EntityType>
+        <Association Name="afericao_pressao_arterial_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="0..1" />
+          <End Type="cdscModel.afericao_pressao_arterial" Role="afericao_pressao_arterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="afericao_pressao_arterial">
+              <PropertyRef Name="apa_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="alimentacao_crianca_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.alimentacao_crianca" Role="alimentacao_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="alimentacao_crianca">
+              <PropertyRef Name="alc_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="crianca_ibfk_1">
+          <End Type="cdscModel.municipio" Role="municipio" Multiplicity="1" />
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="crianca">
+              <PropertyRef Name="cri_id_municipio_nascimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="crianca_usuario_ibfk_2">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.crianca_usuario" Role="crianca_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="crianca_usuario">
+              <PropertyRef Name="cru_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="endereco_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.endereco" Role="endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="endereco">
+              <PropertyRef Name="end_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_crianca_usuario">
+          <End Type="cdscModel.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="usu_id_usuario" />
+            </Principal>
+            <Dependent Role="crianca">
+              <PropertyRef Name="cri_id_usuario_responsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="intercorrencias_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.intercorrencias" Role="intercorrencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="intercorrencias">
+              <PropertyRef Name="int_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marcador_desenvolvimento_crianca_ibfk_2">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.marcador_desenvolvimento_crianca" Role="marcador_desenvolvimento_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="marcador_desenvolvimento_crianca">
+              <PropertyRef Name="mdc_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="outras_observacoes_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.outras_observacoes" Role="outras_observacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="outras_observacoes">
+              <PropertyRef Name="obs_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="parto_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.parto" Role="parto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="parto">
+              <PropertyRef Name="par_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pre_natal_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.pre_natal" Role="pre_natal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="pre_natal">
+              <PropertyRef Name="prn_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="registro_medidas_antropometricas_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.registro_medidas_antropometricas" Role="registro_medidas_antropometricas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="registro_medidas_antropometricas">
+              <PropertyRef Name="rma_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saude_auditiva_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.saude_auditiva" Role="saude_auditiva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="saude_auditiva">
+              <PropertyRef Name="sau_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saude_ocular_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.saude_ocular" Role="saude_ocular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="saude_ocular">
+              <PropertyRef Name="sao_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suplementacao_ferro_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.suplementacao_ferro" Role="suplementacao_ferro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="suplementacao_ferro">
+              <PropertyRef Name="suf_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="suplementacao_vitamina_a_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.suplementacao_vitamina_a" Role="suplementacao_vitamina_a" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="suplementacao_vitamina_a">
+              <PropertyRef Name="sva_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vacinas_crianca_ibfk_2">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.vacinas_crianca" Role="vacinas_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="vacinas_crianca">
+              <PropertyRef Name="vcc_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="crianca_usuario_ibfk_1">
+          <End Type="cdscModel.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="cdscModel.crianca_usuario" Role="crianca_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="usu_id_usuario" />
+            </Principal>
+            <Dependent Role="crianca_usuario">
+              <PropertyRef Name="cru_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="endereco_ibfk_2">
+          <End Type="cdscModel.municipio" Role="municipio" Multiplicity="0..1" />
+          <End Type="cdscModel.endereco" Role="endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="endereco">
+              <PropertyRef Name="end_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marcador_desenvolvimento_crianca_ibfk_1">
+          <End Type="cdscModel.marcador_desenvolvimento" Role="marcador_desenvolvimento" Multiplicity="1" />
+          <End Type="cdscModel.marcador_desenvolvimento_crianca" Role="marcador_desenvolvimento_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marcador_desenvolvimento">
+              <PropertyRef Name="mdv_id_marcador" />
+            </Principal>
+            <Dependent Role="marcador_desenvolvimento_crianca">
+              <PropertyRef Name="mdc_id_marcador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="municipio_ibfk_1">
+          <End Type="cdscModel.uf" Role="uf" Multiplicity="0..1" />
+          <End Type="cdscModel.municipio" Role="municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uf">
+              <PropertyRef Name="uff_id_uf" />
+            </Principal>
+            <Dependent Role="municipio">
+              <PropertyRef Name="mun_id_uf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_ibfk_1">
+          <End Type="cdscModel.perfil" Role="perfil" Multiplicity="1" />
+          <End Type="cdscModel.usuario" Role="usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="per_id_perfil" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="usu_id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vacinas_crianca_ibfk_1">
+          <End Type="cdscModel.vacina" Role="vacina" Multiplicity="1" />
+          <End Type="cdscModel.vacinas_crianca" Role="vacinas_crianca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vacina">
+              <PropertyRef Name="vac_id_vacina" />
+            </Principal>
+            <Dependent Role="vacinas_crianca">
+              <PropertyRef Name="vcc_id_vacina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="exames_triagem_neonatal">
+          <Key>
+            <PropertyRef Name="etn_id_exames_neonatal" />
+          </Key>
+          <Property Name="etn_id_exames_neonatal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="etni_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="etn_st_manobra_ortolani" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_ds_conduta_ortolani" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_teste_reflexo_vermelho" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_ds_conduta_reflexo_vermelho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_teste_pezinho" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_dt_teste_pezinho" Type="DateTime" />
+          <Property Name="etn_st_fenilcitonuria" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_hipotireoidismo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_anemia_falciforme" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_ds_outros" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_triagem_auditiva" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_dt_triagem_auditiva" Type="DateTime" />
+          <Property Name="etn_ds_testes_realizados_auditivos" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_resultado_od" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_resultado_oe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_ds_conduta_triagem_auditiva" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_reteste" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_dt_reteste" Type="DateTime" />
+          <Property Name="etn_ds_testes_realizados_auditivos_reteste" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_resultado_od_reteste" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_st_resultado_oe_reteste" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="etn_ds_conduta_triagem_auditiva_reteste" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.exames_triagem_neonatal_ibfk_1" FromRole="exames_triagem_neonatal" ToRole="crianca" />
+        </EntityType>
+        <Association Name="exames_triagem_neonatal_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.exames_triagem_neonatal" Role="exames_triagem_neonatal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="exames_triagem_neonatal">
+              <PropertyRef Name="etni_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="dados_alta">
+          <Key>
+            <PropertyRef Name="dda_id_alta" />
+          </Key>
+          <Property Name="dda_id_alta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ddai_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="dda_dt_alta" Type="DateTime" />
+          <Property Name="dda_nr_peso" Type="Single" />
+          <Property Name="dda_ds_alimentacao" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dda_ds_anotacoes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.dados_alta_ibfk_1" FromRole="dados_alta" ToRole="crianca" />
+        </EntityType>
+        <Association Name="dados_alta_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.dados_alta" Role="dados_alta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="dados_alta">
+              <PropertyRef Name="ddai_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="nascimento">
+          <Key>
+            <PropertyRef Name="nas_id_nascimento" />
+          </Key>
+          <Property Name="nas_id_nascimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nas_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="nas_dt_nascimento" Type="DateTime" />
+          <Property Name="nas_ds_maternidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nas_id_municipio" Type="Int32" Nullable="false" />
+          <Property Name="nas_nr_peso" Type="Single" />
+          <Property Name="nas_nr_comprimento" Type="Single" />
+          <Property Name="nas_nr_perimetro_encefalico" Type="Single" />
+          <Property Name="nas_ds_sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nas_ds_apagar_1_min" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nas_ds_apagar_5_min" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nas_nr_idade_gestacional_semanas" Type="Int32" />
+          <Property Name="nas_nr_idade_gestacional_dias" Type="Int32" />
+          <Property Name="nas_ds_metodo_avaliacao_ig" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nas_ds_tipo_sanguineo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="nas_ds_tipo_sanguineo_mae" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="nas_st_aleitamento_primeira_hora" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nas_ds_profissional_assistiu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nas_nr_hora_nascimento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.nascimento_ibfk_1" FromRole="nascimento" ToRole="crianca" />
+          <NavigationProperty Name="municipio" Relationship="cdscModel.nascimento_ibfk_2" FromRole="nascimento" ToRole="municipio" />
+        </EntityType>
+        <Association Name="nascimento_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.nascimento" Role="nascimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="nascimento">
+              <PropertyRef Name="nas_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nascimento_ibfk_2">
+          <End Type="cdscModel.municipio" Role="municipio" Multiplicity="1" />
+          <End Type="cdscModel.nascimento" Role="nascimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="nascimento">
+              <PropertyRef Name="nas_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cdscModelStoreContainer" CdmEntityContainer="cdscEntities" >
+          <EntitySetMapping Name="afericao_pressao_arterial">
+            <EntityTypeMapping TypeName="cdscModel.afericao_pressao_arterial">
+              <MappingFragment StoreEntitySet="afericao_pressao_arterial">
+                <ScalarProperty Name="apa_ds_observacao" ColumnName="apa_ds_observacao" />
+                <ScalarProperty Name="apa_nr_pa_distolica" ColumnName="apa_nr_pa_distolica" />
+                <ScalarProperty Name="apa_nr_pa_sistolica" ColumnName="apa_nr_pa_sistolica" />
+                <ScalarProperty Name="apa_nr_idade" ColumnName="apa_nr_idade" />
+                <ScalarProperty Name="apa_dt_data" ColumnName="apa_dt_data" />
+                <ScalarProperty Name="apa_id_crianca" ColumnName="apa_id_crianca" />
+                <ScalarProperty Name="apa_id_afericao" ColumnName="apa_id_afericao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alimentacao_crianca">
+            <EntityTypeMapping TypeName="cdscModel.alimentacao_crianca">
+              <MappingFragment StoreEntitySet="alimentacao_crianca">
+                <ScalarProperty Name="alc_ds_alimentacao" ColumnName="alc_ds_alimentacao" />
+                <ScalarProperty Name="alc_dt_data" ColumnName="alc_dt_data" />
+                <ScalarProperty Name="alc_id_alimentacao" ColumnName="alc_id_alimentacao" />
+                <ScalarProperty Name="alc_id_crianca" ColumnName="alc_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="crianca">
+            <EntityTypeMapping TypeName="cdscModel.crianca">
+              <MappingFragment StoreEntitySet="crianca">
+                <ScalarProperty Name="cri_ds_foto" ColumnName="cri_ds_foto" />
+                <ScalarProperty Name="cri_nr_cartao_sus" ColumnName="cri_nr_cartao_sus" />
+                <ScalarProperty Name="cri_nr_registro_civil_nascimento" ColumnName="cri_nr_registro_civil_nascimento" />
+                <ScalarProperty Name="cri_nr_declaração_nascido_vivo" ColumnName="cri_nr_declaração_nascido_vivo" />
+                <ScalarProperty Name="cri_nr_prontuario" ColumnName="cri_nr_prontuario" />
+                <ScalarProperty Name="cri_ds_etnia" ColumnName="cri_ds_etnia" />
+                <ScalarProperty Name="cri_ds_sexo" ColumnName="cri_ds_sexo" />
+                <ScalarProperty Name="cri_nm_pai" ColumnName="cri_nm_pai" />
+                <ScalarProperty Name="cri_nm_mae" ColumnName="cri_nm_mae" />
+                <ScalarProperty Name="cri_dt_nascimento" ColumnName="cri_dt_nascimento" />
+                <ScalarProperty Name="cri_id_municipio_nascimento" ColumnName="cri_id_municipio_nascimento" />
+                <ScalarProperty Name="cri_ds_nome" ColumnName="cri_ds_nome" />
+                <ScalarProperty Name="cri_id_usuario_responsavel" ColumnName="cri_id_usuario_responsavel" />
+                <ScalarProperty Name="cri_id_crianca" ColumnName="cri_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="crianca_usuario">
+            <EntityTypeMapping TypeName="cdscModel.crianca_usuario">
+              <MappingFragment StoreEntitySet="crianca_usuario">
+                <ScalarProperty Name="cru_id_crianca" ColumnName="cru_id_crianca" />
+                <ScalarProperty Name="cru_id_usuario" ColumnName="cru_id_usuario" />
+                <ScalarProperty Name="cru_id_criança_usuario" ColumnName="cru_id_criança_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="endereco">
+            <EntityTypeMapping TypeName="cdscModel.endereco">
+              <MappingFragment StoreEntitySet="endereco">
+                <ScalarProperty Name="end_dt_data" ColumnName="end_dt_data" />
+                <ScalarProperty Name="end_ds_unidade_basica_frequenta" ColumnName="end_ds_unidade_basica_frequenta" />
+                <ScalarProperty Name="end_id_municipio" ColumnName="end_id_municipio" />
+                <ScalarProperty Name="end_nr_cep" ColumnName="end_nr_cep" />
+                <ScalarProperty Name="end_ds_bairro" ColumnName="end_ds_bairro" />
+                <ScalarProperty Name="end_nr_telefone" ColumnName="end_nr_telefone" />
+                <ScalarProperty Name="end_ds_ponto_referencia" ColumnName="end_ds_ponto_referencia" />
+                <ScalarProperty Name="end_ds_endereco" ColumnName="end_ds_endereco" />
+                <ScalarProperty Name="end_id_crianca" ColumnName="end_id_crianca" />
+                <ScalarProperty Name="end_id_endereço" ColumnName="end_id_endereço" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="intercorrencias">
+            <EntityTypeMapping TypeName="cdscModel.intercorrencias">
+              <MappingFragment StoreEntitySet="intercorrencias">
+                <ScalarProperty Name="int_ds_observacoes" ColumnName="int_ds_observacoes" />
+                <ScalarProperty Name="int_ds_intercorrencia" ColumnName="int_ds_intercorrencia" />
+                <ScalarProperty Name="int_dt_data" ColumnName="int_dt_data" />
+                <ScalarProperty Name="int_id_intercorrencia" ColumnName="int_id_intercorrencia" />
+                <ScalarProperty Name="int_id_crianca" ColumnName="int_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marcador_desenvolvimento">
+            <EntityTypeMapping TypeName="cdscModel.marcador_desenvolvimento">
+              <MappingFragment StoreEntitySet="marcador_desenvolvimento">
+                <ScalarProperty Name="mdv_ds_como_investigar" ColumnName="mdv_ds_como_investigar" />
+                <ScalarProperty Name="mdv_ds_marcador" ColumnName="mdv_ds_marcador" />
+                <ScalarProperty Name="mdv_id_marcador" ColumnName="mdv_id_marcador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marcador_desenvolvimento_crianca">
+            <EntityTypeMapping TypeName="cdscModel.marcador_desenvolvimento_crianca">
+              <MappingFragment StoreEntitySet="marcador_desenvolvimento_crianca">
+                <ScalarProperty Name="mdc_ds_status" ColumnName="mdc_ds_status" />
+                <ScalarProperty Name="mdc_nr_idade" ColumnName="mdc_nr_idade" />
+                <ScalarProperty Name="mdc_id_crianca" ColumnName="mdc_id_crianca" />
+                <ScalarProperty Name="mdc_id_marcador" ColumnName="mdc_id_marcador" />
+                <ScalarProperty Name="mdc_id_marcador_crianca" ColumnName="mdc_id_marcador_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu">
+            <EntityTypeMapping TypeName="cdscModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="men_ds_url" ColumnName="men_ds_url" />
+                <ScalarProperty Name="men_ds_menu" ColumnName="men_ds_menu" />
+                <ScalarProperty Name="men_id_menu" ColumnName="men_id_menu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="municipio">
+            <EntityTypeMapping TypeName="cdscModel.municipio">
+              <MappingFragment StoreEntitySet="municipio">
+                <ScalarProperty Name="mun_id_uf" ColumnName="mun_id_uf" />
+                <ScalarProperty Name="mun_ds_municipio" ColumnName="mun_ds_municipio" />
+                <ScalarProperty Name="mun_id_municipio" ColumnName="mun_id_municipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="outras_observacoes">
+            <EntityTypeMapping TypeName="cdscModel.outras_observacoes">
+              <MappingFragment StoreEntitySet="outras_observacoes">
+                <ScalarProperty Name="obs_ds_anotacao" ColumnName="obs_ds_anotacao" />
+                <ScalarProperty Name="obs_dt_data" ColumnName="obs_dt_data" />
+                <ScalarProperty Name="obs_id_observacoes" ColumnName="obs_id_observacoes" />
+                <ScalarProperty Name="obs_id_crianca" ColumnName="obs_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parto">
+            <EntityTypeMapping TypeName="cdscModel.parto">
+              <MappingFragment StoreEntitySet="parto">
+                <ScalarProperty Name="par_ds_intercorrencias_clinicas" ColumnName="par_ds_intercorrencias_clinicas" />
+                <ScalarProperty Name="par_st_megadose_vitamina_a" ColumnName="par_st_megadose_vitamina_a" />
+                <ScalarProperty Name="par_st_a53_periodo" ColumnName="par_st_a53_periodo" />
+                <ScalarProperty Name="par_st_a53_status" ColumnName="par_st_a53_status" />
+                <ScalarProperty Name="par_nr_z21_periodo" ColumnName="par_nr_z21_periodo" />
+                <ScalarProperty Name="par_st_z21_status" ColumnName="par_st_z21_status" />
+                <ScalarProperty Name="par_ds_indicacao" ColumnName="par_ds_indicacao" />
+                <ScalarProperty Name="par_tp_parto" ColumnName="par_tp_parto" />
+                <ScalarProperty Name="par_ds_local" ColumnName="par_ds_local" />
+                <ScalarProperty Name="par_id_crianca" ColumnName="par_id_crianca" />
+                <ScalarProperty Name="par_id_parto" ColumnName="par_id_parto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="perfil">
+            <EntityTypeMapping TypeName="cdscModel.perfil">
+              <MappingFragment StoreEntitySet="perfil">
+                <ScalarProperty Name="per_ds_perfil" ColumnName="per_ds_perfil" />
+                <ScalarProperty Name="per_id_perfil" ColumnName="per_id_perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_natal">
+            <EntityTypeMapping TypeName="cdscModel.pre_natal">
+              <MappingFragment StoreEntitySet="pre_natal">
+                <ScalarProperty Name="prn_st_suplementação_ferro" ColumnName="prn_st_suplementação_ferro" />
+                <ScalarProperty Name="prn_st_imunização_dupla_adulto" ColumnName="prn_st_imunização_dupla_adulto" />
+                <ScalarProperty Name="prn_nr_b58_periodo" ColumnName="prn_nr_b58_periodo" />
+                <ScalarProperty Name="prn_st_b58_status" ColumnName="prn_st_b58_status" />
+                <ScalarProperty Name="prn_nr_b18_periodo" ColumnName="prn_nr_b18_periodo" />
+                <ScalarProperty Name="prn_st_b18_status" ColumnName="prn_st_b18_status" />
+                <ScalarProperty Name="prn_nr_a53_periodo" ColumnName="prn_nr_a53_periodo" />
+                <ScalarProperty Name="prn_st_a53_status" ColumnName="prn_st_a53_status" />
+                <ScalarProperty Name="prn_nr_z21_periodo" ColumnName="prn_nr_z21_periodo" />
+                <ScalarProperty Name="prn_st_z21_status" ColumnName="prn_st_z21_status" />
+                <ScalarProperty Name="prn_numero_consultas" ColumnName="prn_numero_consultas" />
+                <ScalarProperty Name="prn_nr_inicio_pre_natal" ColumnName="prn_nr_inicio_pre_natal" />
+                <ScalarProperty Name="prn_id_crianca" ColumnName="prn_id_crianca" />
+                <ScalarProperty Name="prn_id_pre_natal" ColumnName="prn_id_pre_natal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registro_medidas_antropometricas">
+            <EntityTypeMapping TypeName="cdscModel.registro_medidas_antropometricas">
+              <MappingFragment StoreEntitySet="registro_medidas_antropometricas">
+                <ScalarProperty Name="rma_nr_imc" ColumnName="rma_nr_imc" />
+                <ScalarProperty Name="rma_nr_perimetro_cefalico" ColumnName="rma_nr_perimetro_cefalico" />
+                <ScalarProperty Name="rma_nr_estatura" ColumnName="rma_nr_estatura" />
+                <ScalarProperty Name="rma_nr_peso" ColumnName="rma_nr_peso" />
+                <ScalarProperty Name="rma_nr_idade" ColumnName="rma_nr_idade" />
+                <ScalarProperty Name="rma_dt_registro" ColumnName="rma_dt_registro" />
+                <ScalarProperty Name="rma_id_crianca" ColumnName="rma_id_crianca" />
+                <ScalarProperty Name="rma_id_registro_medidas" ColumnName="rma_id_registro_medidas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="saude_auditiva">
+            <EntityTypeMapping TypeName="cdscModel.saude_auditiva">
+              <MappingFragment StoreEntitySet="saude_auditiva">
+                <ScalarProperty Name="sau_st_nessidade_monitoramento_audicao" ColumnName="sau_st_nessidade_monitoramento_audicao" />
+                <ScalarProperty Name="sau_ds_encaminhamento" ColumnName="sau_ds_encaminhamento" />
+                <ScalarProperty Name="sau_st_resultado_oe" ColumnName="sau_st_resultado_oe" />
+                <ScalarProperty Name="sau_st_resultado_od" ColumnName="sau_st_resultado_od" />
+                <ScalarProperty Name="sau_dt_data" ColumnName="sau_dt_data" />
+                <ScalarProperty Name="sau_ds_local" ColumnName="sau_ds_local" />
+                <ScalarProperty Name="sau_st_imitanciometria" ColumnName="sau_st_imitanciometria" />
+                <ScalarProperty Name="sau_st_audiometria_tonal" ColumnName="sau_st_audiometria_tonal" />
+                <ScalarProperty Name="sau_nr_idade" ColumnName="sau_nr_idade" />
+                <ScalarProperty Name="sau_id_saude_auditiva" ColumnName="sau_id_saude_auditiva" />
+                <ScalarProperty Name="sau_id_crianca" ColumnName="sau_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="saude_ocular">
+            <EntityTypeMapping TypeName="cdscModel.saude_ocular">
+              <MappingFragment StoreEntitySet="saude_ocular">
+                <ScalarProperty Name="sao_st_prescricao_oculos" ColumnName="sao_st_prescricao_oculos" />
+                <ScalarProperty Name="sao_st_disturbio_visual" ColumnName="sao_st_disturbio_visual" />
+                <ScalarProperty Name="sao_st_consulta_oftamologica" ColumnName="sao_st_consulta_oftamologica" />
+                <ScalarProperty Name="sao_st_resultado_tav" ColumnName="sao_st_resultado_tav" />
+                <ScalarProperty Name="sao_nr_periodo" ColumnName="sao_nr_periodo" />
+                <ScalarProperty Name="sao_id_saude_ocular" ColumnName="sao_id_saude_ocular" />
+                <ScalarProperty Name="sao_id_crianca" ColumnName="sao_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suplementacao_ferro">
+            <EntityTypeMapping TypeName="cdscModel.suplementacao_ferro">
+              <MappingFragment StoreEntitySet="suplementacao_ferro">
+                <ScalarProperty Name="suf_ds_local" ColumnName="suf_ds_local" />
+                <ScalarProperty Name="suf_dt_suplementacao" ColumnName="suf_dt_suplementacao" />
+                <ScalarProperty Name="suf_id_suplementacao_ferro" ColumnName="suf_id_suplementacao_ferro" />
+                <ScalarProperty Name="suf_id_crianca" ColumnName="suf_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suplementacao_vitamina_a">
+            <EntityTypeMapping TypeName="cdscModel.suplementacao_vitamina_a">
+              <MappingFragment StoreEntitySet="suplementacao_vitamina_a">
+                <ScalarProperty Name="sva_ds_local" ColumnName="sva_ds_local" />
+                <ScalarProperty Name="sva_dt_data" ColumnName="sva_dt_data" />
+                <ScalarProperty Name="sva_id_suplementacao_vitamina_a" ColumnName="sva_id_suplementacao_vitamina_a" />
+                <ScalarProperty Name="sva_id_crianca" ColumnName="sva_id_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uf">
+            <EntityTypeMapping TypeName="cdscModel.uf">
+              <MappingFragment StoreEntitySet="uf">
+                <ScalarProperty Name="uff_ds_sigla" ColumnName="uff_ds_sigla" />
+                <ScalarProperty Name="uff_ds_uf" ColumnName="uff_ds_uf" />
+                <ScalarProperty Name="uff_id_uf" ColumnName="uff_id_uf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="cdscModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="usu_id_perfil" ColumnName="usu_id_perfil" />
+                <ScalarProperty Name="usu_ds_senha" ColumnName="usu_ds_senha" />
+                <ScalarProperty Name="usu_ds_email" ColumnName="usu_ds_email" />
+                <ScalarProperty Name="usu_nr_telefone" ColumnName="usu_nr_telefone" />
+                <ScalarProperty Name="usu_ds_nome" ColumnName="usu_ds_nome" />
+                <ScalarProperty Name="usu_nr_cpf" ColumnName="usu_nr_cpf" />
+                <ScalarProperty Name="usu_id_usuario" ColumnName="usu_id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacina">
+            <EntityTypeMapping TypeName="cdscModel.vacina">
+              <MappingFragment StoreEntitySet="vacina">
+                <ScalarProperty Name="vac_ds_vacina" ColumnName="vac_ds_vacina" />
+                <ScalarProperty Name="vac_id_vacina" ColumnName="vac_id_vacina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacinas_crianca">
+            <EntityTypeMapping TypeName="cdscModel.vacinas_crianca">
+              <MappingFragment StoreEntitySet="vacinas_crianca">
+                <ScalarProperty Name="vcc_ds_unidade" ColumnName="vcc_ds_unidade" />
+                <ScalarProperty Name="vcc_nr_lote" ColumnName="vcc_nr_lote" />
+                <ScalarProperty Name="vcc_nr_dose" ColumnName="vcc_nr_dose" />
+                <ScalarProperty Name="vcc_dt_data" ColumnName="vcc_dt_data" />
+                <ScalarProperty Name="vcc_id_crianca" ColumnName="vcc_id_crianca" />
+                <ScalarProperty Name="vcc_id_vacina" ColumnName="vcc_id_vacina" />
+                <ScalarProperty Name="vcc_id_vacina_crianca" ColumnName="vcc_id_vacina_crianca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="exames_triagem_neonatal">
+            <EntityTypeMapping TypeName="cdscModel.exames_triagem_neonatal">
+              <MappingFragment StoreEntitySet="exames_triagem_neonatal">
+                <ScalarProperty Name="etn_ds_conduta_triagem_auditiva_reteste" ColumnName="etn_ds_conduta_triagem_auditiva_reteste" />
+                <ScalarProperty Name="etn_st_resultado_oe_reteste" ColumnName="etn_st_resultado_oe_reteste" />
+                <ScalarProperty Name="etn_st_resultado_od_reteste" ColumnName="etn_st_resultado_od_reteste" />
+                <ScalarProperty Name="etn_ds_testes_realizados_auditivos_reteste" ColumnName="etn_ds_testes_realizados_auditivos_reteste" />
+                <ScalarProperty Name="etn_dt_reteste" ColumnName="etn_dt_reteste" />
+                <ScalarProperty Name="etn_st_reteste" ColumnName="etn_st_reteste" />
+                <ScalarProperty Name="etn_ds_conduta_triagem_auditiva" ColumnName="etn_ds_conduta_triagem_auditiva" />
+                <ScalarProperty Name="etn_st_resultado_oe" ColumnName="etn_st_resultado_oe" />
+                <ScalarProperty Name="etn_st_resultado_od" ColumnName="etn_st_resultado_od" />
+                <ScalarProperty Name="etn_ds_testes_realizados_auditivos" ColumnName="etn_ds_testes_realizados_auditivos" />
+                <ScalarProperty Name="etn_dt_triagem_auditiva" ColumnName="etn_dt_triagem_auditiva" />
+                <ScalarProperty Name="etn_st_triagem_auditiva" ColumnName="etn_st_triagem_auditiva" />
+                <ScalarProperty Name="etn_ds_outros" ColumnName="etn_ds_outros" />
+                <ScalarProperty Name="etn_st_anemia_falciforme" ColumnName="etn_st_anemia_falciforme" />
+                <ScalarProperty Name="etn_st_hipotireoidismo" ColumnName="etn_st_hipotireoidismo" />
+                <ScalarProperty Name="etn_st_fenilcitonuria" ColumnName="etn_st_fenilcitonuria" />
+                <ScalarProperty Name="etn_dt_teste_pezinho" ColumnName="etn_dt_teste_pezinho" />
+                <ScalarProperty Name="etn_st_teste_pezinho" ColumnName="etn_st_teste_pezinho" />
+                <ScalarProperty Name="etn_ds_conduta_reflexo_vermelho" ColumnName="etn_ds_conduta_reflexo_vermelho" />
+                <ScalarProperty Name="etn_st_teste_reflexo_vermelho" ColumnName="etn_st_teste_reflexo_vermelho" />
+                <ScalarProperty Name="etn_ds_conduta_ortolani" ColumnName="etn_ds_conduta_ortolani" />
+                <ScalarProperty Name="etn_st_manobra_ortolani" ColumnName="etn_st_manobra_ortolani" />
+                <ScalarProperty Name="etni_id_crianca" ColumnName="etni_id_crianca" />
+                <ScalarProperty Name="etn_id_exames_neonatal" ColumnName="etn_id_exames_neonatal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dados_alta">
+            <EntityTypeMapping TypeName="cdscModel.dados_alta">
+              <MappingFragment StoreEntitySet="dados_alta">
+                <ScalarProperty Name="dda_ds_anotacoes" ColumnName="dda_ds_anotacoes" />
+                <ScalarProperty Name="dda_ds_alimentacao" ColumnName="dda_ds_alimentacao" />
+                <ScalarProperty Name="dda_nr_peso" ColumnName="dda_nr_peso" />
+                <ScalarProperty Name="dda_dt_alta" ColumnName="dda_dt_alta" />
+                <ScalarProperty Name="ddai_id_crianca" ColumnName="ddai_id_crianca" />
+                <ScalarProperty Name="dda_id_alta" ColumnName="dda_id_alta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nascimento">
+            <EntityTypeMapping TypeName="cdscModel.nascimento">
+              <MappingFragment StoreEntitySet="nascimento">
+                <ScalarProperty Name="nas_nr_hora_nascimento" ColumnName="nas_nr_hora_nascimento" />
+                <ScalarProperty Name="nas_ds_profissional_assistiu" ColumnName="nas_ds_profissional_assistiu" />
+                <ScalarProperty Name="nas_st_aleitamento_primeira_hora" ColumnName="nas_st_aleitamento_primeira_hora" />
+                <ScalarProperty Name="nas_ds_tipo_sanguineo_mae" ColumnName="nas_ds_tipo_sanguineo_mae" />
+                <ScalarProperty Name="nas_ds_tipo_sanguineo" ColumnName="nas_ds_tipo_sanguineo" />
+                <ScalarProperty Name="nas_ds_metodo_avaliacao_ig" ColumnName="nas_ds_metodo_avaliacao_ig" />
+                <ScalarProperty Name="nas_nr_idade_gestacional_dias" ColumnName="nas_nr_idade_gestacional_dias" />
+                <ScalarProperty Name="nas_nr_idade_gestacional_semanas" ColumnName="nas_nr_idade_gestacional_semanas" />
+                <ScalarProperty Name="nas_ds_apagar_5_min" ColumnName="nas_ds_apagar_5_min" />
+                <ScalarProperty Name="nas_ds_apagar_1_min" ColumnName="nas_ds_apagar_1_min" />
+                <ScalarProperty Name="nas_ds_sexo" ColumnName="nas_ds_sexo" />
+                <ScalarProperty Name="nas_nr_perimetro_encefalico" ColumnName="nas_nr_perimetro_encefalico" />
+                <ScalarProperty Name="nas_nr_comprimento" ColumnName="nas_nr_comprimento" />
+                <ScalarProperty Name="nas_nr_peso" ColumnName="nas_nr_peso" />
+                <ScalarProperty Name="nas_id_municipio" ColumnName="nas_id_municipio" />
+                <ScalarProperty Name="nas_ds_maternidade" ColumnName="nas_ds_maternidade" />
+                <ScalarProperty Name="nas_dt_nascimento" ColumnName="nas_dt_nascimento" />
+                <ScalarProperty Name="nas_id_crianca" ColumnName="nas_id_crianca" />
+                <ScalarProperty Name="nas_id_nascimento" ColumnName="nas_id_nascimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

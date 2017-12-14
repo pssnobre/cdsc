@@ -1,0 +1,105 @@
+﻿@model CDSC.Models.MedidasAntropometricasModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "MedidasAntropometricas", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Registro das Medidas Antropométricas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Idade:</h3>
+                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control", @required = "required", })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Peso(g):</h3>
+                                @Html.TextBoxFor(model => model.peso, new {  @required = "required", @class = "form-control", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Estatura(cm):</h3>
+                                @Html.TextBoxFor(model => model.estatura, new { @required = "required", @class = "form-control", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Perímetro Cefálico(cm):</h3>
+                                @Html.TextBoxFor(model => model.perimetroCefalico, new { @required = "required", @class = "form-control", @maxlength = "10" })
+                            </div>
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "MedidasAntropometricas", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Registro de Medidas</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Idade</th>
+                                                    <th>Peso(g)</th>
+                                                    <th>Estatura(cm)</th>
+                                                    <th>Perímetro Cefálico(cm)</th>
+                                                    <th>IMC</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaMedidas.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMedidas[i].data)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMedidas[i].idade) meses</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMedidas[i].peso) g</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMedidas[i].estatura) cm</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMedidas[i].perimetroCefalico) cm</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaMedidas[i].imc)</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+}
+
+

@@ -1,0 +1,127 @@
+﻿@model CDSC.Models.VacinaModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "Vacinas", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Vacinas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Vacina</h3>
+                                @Html.DropDownListFor(model => model.idVacina, (SelectList)ViewBag.Vacinas, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Data:</h3>
+                                @Html.TextBoxFor(model => model.data, new { @class = "form-control datepicker-here", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Dose:</h3>
+                                @Html.DropDownListFor(model => model.dose, (SelectList)ViewBag.Doses, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Lote:</h3>
+                                @Html.TextBoxFor(model => model.lote, new { @validate = "required", @required = "required", @class = "form-control", @maxlength = "10" })
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Unidade:</h3>
+                                @Html.TextBoxFor(model => model.unidade, new { @validate = "required", @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "Vacinas", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Vacinas</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Vacina</th>
+                                                    <th>Data</th>
+                                                    <th>Dose</th>
+                                                    <th>Lote</th>
+                                                    <th>Unidade</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaVacinasRecebidas.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaVacinasRecebidas[i].descricaoVacina)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaVacinasRecebidas[i].data)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaVacinasRecebidas[i].dose)ª dose</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaVacinasRecebidas[i].lote)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaVacinasRecebidas[i].unidade)</td>
+                                                    </tr>
+                                                }
+                                                @*<tr>
+                                                    <td>BCG</td>
+                                                    <td>12/04/2001</td>
+                                                    <td>1ª Dose</td>
+                                                    <td>548332</td>
+                                                    <td>Posto de Saúde</td>
+                                                </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker-here').attr('data-language', 'pt-BR');
+        });
+    </script>
+
+}
+
+

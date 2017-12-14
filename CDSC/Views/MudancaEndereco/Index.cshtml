@@ -1,0 +1,171 @@
+﻿@model CDSC.Models.MudancaEnderecoModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "MudancaEndereco", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Mudanças de Endereço</h3>
+                        @*<p class="panel-subtitle">Período: @DateTime.Now</p>*@
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="panel-title">Endereço</h3>
+                                @Html.TextBoxFor(model => model.endereco, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Ponto de referência</h3>
+                                @Html.TextBoxFor(model => model.pontoReferencia, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Unidade básica que frequenta</h3>
+                                @Html.TextBoxFor(model => model.unidadeBasicaQueFrequenta, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h3 class="panel-title">Telefone</h3>
+                                @Html.TextBoxFor(model => model.telefone, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-2">
+                                <h3 class="panel-title">Bairro</h3>
+                                @Html.TextBoxFor(model => model.bairro, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-2">
+                                <h3 class="panel-title">cep</h3>
+                                @Html.TextBoxFor(model => model.cep, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">UF</h3>
+                                @Html.DropDownListFor(model => model.idUf, (SelectList)ViewBag.UF, "Selecione...", new { @required = "required", @class = "form-control ddluf" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Município</h3>
+                                @Html.DropDownListFor(model => model.idMunicipio, (SelectList)ViewBag.Municipio, "Selecione...", new { @required = "required", @class = "form-control ddlmunicipio" })
+
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @*<button type="button" class="btn btn-success">Salvar</button>*@
+                                @*@Html.SubmitButton("Salvar", "Salvar", "Demanda", new { @group = "demanda", @class = "btn bt-padrao icon icon-floppy-disk botaoSubmit" })*@
+
+                                @*@Html.ActionLink("Salvar", "Salvar", "MudancaEnderecoModel", new { @class = "btn bt-padrao icon icon-floppy-disk botaoSubmit" })
+                                    @Html.ActionLink("Avançar", "Index", "MudancaEndereco", new { @class = "btn bt-padrao" })*@
+
+
+                                @Html.ActionLink("Voltar", "Voltar", "MudancaEndereco", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Salvar</button>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Endereços</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Endereço</th>
+                                                    <th>UBS</th>
+                                                    <th>UF/Município</th>
+                                                    <th>Cep</th>
+                                                    @*<th>Visualizar</th>
+                                                        <th>Excluir</th>*@
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaEnderecos.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaEnderecos[i].data)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaEnderecos[i].endereco)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaEnderecos[i].unidadeBasicaQueFrequenta)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaEnderecos[i].descricaoUfMunicipio)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaEnderecos[i].cep)</td>
+                                                        @*<td><icon class="fa fa-eye"></icon></td>
+                                                            <td><icon class="fa fa-close"></icon></td>*@
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $('.ddluf').change(function () {
+            var codigoUF = this.value;
+            if (codigoUF > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/IdentificacaoCrianca/CarregaMunicipios/")' + codigoUF,
+
+                    dataType: 'json',
+
+                    success: function (municipios) {
+                        $('.ddlmunicipio').find("option").remove();
+                        $('.ddlmunicipio').removeProp('disabled');
+                        $('.ddlmunicipio').append('<option value>Selecione...</option>');
+                        $.each(municipios, function (i, municipios) {
+                            $('.ddlmunicipio').append('<option value="' + municipios.Value + '">' +
+                                 municipios.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log('Consulta falhou ' + ex);
+                    }
+                });
+            } else {
+                $('.ddlmunicipio').find("option").remove();
+            }
+
+        });
+    </script>
+
+}
+
+

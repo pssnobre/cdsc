@@ -1,0 +1,97 @@
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\obj\Debug\CDSC.csprojResolveAssemblyReference.cache
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\ApplicationInsights.config
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\csc.exe
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\System.Collections.Immutable.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\vbc.exe
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\VBCSCompiler.exe
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\roslyn\VBCSCompiler.exe.config
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\CDSC.dll.config
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\CDSC.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\CDSC.pdb
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\CDSC.Class.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\EntityFramework.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.Web.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.WindowsServer.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.ApplicationInsights.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.Web.Infrastructure.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Helpers.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Mvc.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Razor.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Webpages.Deployment.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Webpages.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Webpages.Razor.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\CDSC.Class.pdb
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.Web.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.AI.WindowsServer.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.ApplicationInsights.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Razor.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Webpages.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Webpages.Deployment.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Webpages.Razor.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Helpers.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\bin\System.Web.Mvc.xml
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\obj\Debug\CDSC.dll
+c:\users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC\obj\Debug\CDSC.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\ApplicationInsights.config
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\csc.exe
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\vbc.exe
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\VBCSCompiler.exe
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\CDSC.dll.config
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\CDSC.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\CDSC.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\CDSC.Class.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.Web.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.ApplicationInsights.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Helpers.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Mvc.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Razor.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Webpages.Deployment.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Webpages.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Webpages.Razor.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\CDSC.Class.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.Web.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.ApplicationInsights.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Razor.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Webpages.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Webpages.Deployment.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Webpages.Razor.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Helpers.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\bin\System.Web.Mvc.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\obj\Debug\CDSC.csprojResolveAssemblyReference.cache
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\obj\Debug\CDSC.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC\obj\Debug\CDSC.pdb

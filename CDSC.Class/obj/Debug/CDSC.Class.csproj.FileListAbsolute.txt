@@ -1,0 +1,15 @@
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\bin\Debug\CDSC.Class.dll.config
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\bin\Debug\CDSC.Class.dll
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\bin\Debug\CDSC.Class.pdb
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\bin\Debug\EntityFramework.dll
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\bin\Debug\EntityFramework.xml
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\obj\Debug\CDSC.Class.dll
+c:\Users\paulo.nobre.topos\documents\visual studio 2015\Projects\CDSC\CDSC.Class\obj\Debug\CDSC.Class.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\bin\Debug\CDSC.Class.dll.config
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\bin\Debug\CDSC.Class.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\bin\Debug\CDSC.Class.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\bin\Debug\EntityFramework.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\bin\Debug\EntityFramework.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\obj\Debug\CDSC.Class.csprojResolveAssemblyReference.cache
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\obj\Debug\CDSC.Class.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\obj\Debug\CDSC.Class.pdb

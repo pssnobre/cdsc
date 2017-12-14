@@ -1,0 +1,126 @@
+﻿@model CDSC.Models.ObservacaoModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "Observacoes", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Observações</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Data:</h3>
+                                @Html.TextBoxFor(model => model.data, new { @class = "form-control datepicker-here", @maxlength = "10" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="panel-title">Observações:</h3>
+                                @Html.TextAreaFor(model => model.descricaoObservacao, new { @validate = "required", @rows = "3", @required = "required", @class = "form-control", @maxlength = "200" })
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "Observacoes", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Adicionar</button>
+                                @*<button type="button" class="btn btn-success btn-toastr" data-context="success" data-message="This is success info" data-position="top-right">Success Info</button>*@
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Lista de Observações</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Observação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaObservacoes.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaObservacoes[i].data)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaObservacoes[i].descricaoObservacao)</td>
+                                                        
+                                                    </tr>
+                                                }
+                                                @*<tr>
+                                                    <td>12/04/2001</td>
+                                                    <td>Teve febre alta</td>
+                                                </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker-here').attr('data-language', 'pt-BR');
+
+            $('.btn-toastr').on('click', function () {
+                $context = $(this).data('context');
+                $message = $(this).data('message');
+                $position = $(this).data('position');
+
+                if ($context == '') {
+                    $context = 'info';
+                }
+
+                if ($position == '') {
+                    $positionClass = 'toast-left-top';
+                } else {
+                    $positionClass = 'toast-' + $position;
+                }
+
+                toastr.remove();
+                toastr[$context]($message, '', { positionClass: $positionClass });
+            });
+
+            @ViewBag.Script
+        });
+
+    </script>
+
+}
+
+

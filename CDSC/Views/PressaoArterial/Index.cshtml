@@ -1,0 +1,103 @@
+﻿@model CDSC.Models.PressaoArterialModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Salvar", "PressaoArterial", FormMethod.Post))
+{
+
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Aferição da Pressão Arterial</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Idade:</h3>
+                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Valor da Pa Sistólica:</h3>
+                                @Html.TextBoxFor(model => model.sistolica, new { @required = "required", @class = "form-control", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Valor da Pa Distólica:</h3>
+                                @Html.TextBoxFor(model => model.distolica, new { @required = "required", @class = "form-control", @maxlength = "10" })
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="panel-title">Observações:</h3>
+                                @Html.TextBoxFor(model => model.observacao, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                            </div>
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+
+
+                        <div class="row pull-right">
+                            <div class="col-md-12">
+                                @Html.ActionLink("Voltar", "Voltar", "PressaoArterial", new { @class = "btn bt-padrao" })
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BASIC TABLE -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Valores Aferições</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Idade</th>
+                                                    <th>Valor da Pa Sistólica</th>
+                                                    <th>Valor da Pa Distólica</th>
+                                                    <th>Observações</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.listaAfericoes.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaAfericoes[i].data)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaAfericoes[i].idade) meses</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaAfericoes[i].sistolica)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaAfericoes[i].distolica)</td>
+                                                        <td>@Html.DisplayFor(modelItem => Model.listaAfericoes[i].observacao)</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END BASIC TABLE -->
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+
+}
+
+

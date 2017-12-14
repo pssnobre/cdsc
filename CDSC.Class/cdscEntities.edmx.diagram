@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c47fbfb47df94284a37b4e3e26124ab1" Name="Diagram1" >
+        <EntityTypeShape EntityType="cdscModel.afericao_pressao_arterial" Width="1.5" PointX="7.5" PointY="16.5" />
+        <EntityTypeShape EntityType="cdscModel.alimentacao_crianca" Width="1.5" PointX="7.5" PointY="58.875" />
+        <EntityTypeShape EntityType="cdscModel.crianca" Width="1.5" PointX="5.25" PointY="32.625" />
+        <EntityTypeShape EntityType="cdscModel.crianca_usuario" Width="1.5" PointX="7.5" PointY="30.5" />
+        <EntityTypeShape EntityType="cdscModel.endereco" Width="1.5" PointX="7.5" PointY="40.75" />
+        <EntityTypeShape EntityType="cdscModel.intercorrencias" Width="1.5" PointX="7.5" PointY="13.625" />
+        <EntityTypeShape EntityType="cdscModel.marcador_desenvolvimento" Width="1.5" PointX="8.25" PointY="45.5" />
+        <EntityTypeShape EntityType="cdscModel.marcador_desenvolvimento_crianca" Width="1.5" PointX="10.5" PointY="31.25" />
+        <EntityTypeShape EntityType="cdscModel.menu" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="cdscModel.municipio" Width="1.5" PointX="3" PointY="31.25" />
+        <EntityTypeShape EntityType="cdscModel.outras_observacoes" Width="1.5" PointX="7.5" PointY="61.625" />
+        <EntityTypeShape EntityType="cdscModel.parto" Width="1.5" PointX="7.5" PointY="26" />
+        <EntityTypeShape EntityType="cdscModel.perfil" Width="1.5" PointX="0.75" PointY="35.625" />
+        <EntityTypeShape EntityType="cdscModel.pre_natal" Width="1.5" PointX="7.5" PointY="68.375" />
+        <EntityTypeShape EntityType="cdscModel.registro_medidas_antropometricas" Width="1.5" PointX="7.5" PointY="19.75" />
+        <EntityTypeShape EntityType="cdscModel.saude_auditiva" Width="1.5" PointX="7.5" PointY="64.25" />
+        <EntityTypeShape EntityType="cdscModel.saude_ocular" Width="1.5" PointX="7.5" PointY="73" />
+        <EntityTypeShape EntityType="cdscModel.suplementacao_ferro" Width="1.5" PointX="7.5" PointY="23.25" />
+        <EntityTypeShape EntityType="cdscModel.suplementacao_vitamina_a" Width="1.5" PointX="7.5" PointY="76.375" />
+        <EntityTypeShape EntityType="cdscModel.uf" Width="1.5" PointX="0.75" PointY="31.5" />
+        <EntityTypeShape EntityType="cdscModel.usuario" Width="1.5" PointX="3" PointY="35" />
+        <EntityTypeShape EntityType="cdscModel.vacina" Width="1.5" PointX="8.25" PointY="48.625" />
+        <EntityTypeShape EntityType="cdscModel.vacinas_crianca" Width="1.5" PointX="10.5" PointY="35" />
+        <AssociationConnector Association="cdscModel.afericao_pressao_arterial_ibfk_1" />
+        <AssociationConnector Association="cdscModel.alimentacao_crianca_ibfk_1" />
+        <AssociationConnector Association="cdscModel.crianca_ibfk_1" />
+        <AssociationConnector Association="cdscModel.crianca_usuario_ibfk_2" />
+        <AssociationConnector Association="cdscModel.endereco_ibfk_1" />
+        <AssociationConnector Association="cdscModel.FK_crianca_usuario" />
+        <AssociationConnector Association="cdscModel.intercorrencias_ibfk_1" />
+        <AssociationConnector Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_2" />
+        <AssociationConnector Association="cdscModel.outras_observacoes_ibfk_1" />
+        <AssociationConnector Association="cdscModel.parto_ibfk_1" />
+        <AssociationConnector Association="cdscModel.pre_natal_ibfk_1" />
+        <AssociationConnector Association="cdscModel.registro_medidas_antropometricas_ibfk_1" />
+        <AssociationConnector Association="cdscModel.saude_auditiva_ibfk_1" />
+        <AssociationConnector Association="cdscModel.saude_ocular_ibfk_1" />
+        <AssociationConnector Association="cdscModel.suplementacao_ferro_ibfk_1" />
+        <AssociationConnector Association="cdscModel.suplementacao_vitamina_a_ibfk_1" />
+        <AssociationConnector Association="cdscModel.vacinas_crianca_ibfk_2" />
+        <AssociationConnector Association="cdscModel.crianca_usuario_ibfk_1" />
+        <AssociationConnector Association="cdscModel.endereco_ibfk_2" />
+        <AssociationConnector Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_1" />
+        <AssociationConnector Association="cdscModel.municipio_ibfk_1" />
+        <AssociationConnector Association="cdscModel.usuario_ibfk_1" />
+        <AssociationConnector Association="cdscModel.vacinas_crianca_ibfk_1" />
+        <EntityTypeShape EntityType="cdscModel.exames_triagem_neonatal" Width="1.5" PointX="7.5" PointY="33.5" />
+        <AssociationConnector Association="cdscModel.exames_triagem_neonatal_ibfk_1" />
+        <EntityTypeShape EntityType="cdscModel.dados_alta" Width="1.5" PointX="7.5" PointY="51.25" />
+        <AssociationConnector Association="cdscModel.dados_alta_ibfk_1" />
+        <EntityTypeShape EntityType="cdscModel.nascimento" Width="1.5" PointX="13.5" PointY="33.125" />
+        <AssociationConnector Association="cdscModel.nascimento_ibfk_1" />
+        <AssociationConnector Association="cdscModel.nascimento_ibfk_2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
