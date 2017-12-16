@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <h3 class="panel-title">Idade:</h3>
-                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control", @required = "required" })
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Valor da Pa Sistólica:</h3>

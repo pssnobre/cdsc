@@ -22,15 +22,15 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <h3 class="panel-title">Vacina</h3>
-                                @Html.DropDownListFor(model => model.idVacina, (SelectList)ViewBag.Vacinas, "Selecione...", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.idVacina, (SelectList)ViewBag.Vacinas, "Selecione...", new { @class = "form-control", @required = "required" })
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Data:</h3>
-                                @Html.TextBoxFor(model => model.data, new { @class = "form-control datepicker-here", @maxlength = "10" })
+                                @Html.TextBoxFor(model => model.data, new { @class = "form-control datepicker-here", @maxlength = "10", @required = "required" })
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Dose:</h3>
-                                @Html.DropDownListFor(model => model.dose, (SelectList)ViewBag.Doses, "Selecione...", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.dose, (SelectList)ViewBag.Doses, "Selecione...", new { @class = "form-control", @required = "required" })
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Lote:</h3>

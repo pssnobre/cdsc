@@ -22,15 +22,15 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <h3 class="panel-title">Marco de desenvolvimento:</h3>
-                                @Html.DropDownListFor(model => model.idMarcador, (SelectList)ViewBag.ListaMarcadoresDrop, "Selecione...", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.idMarcador, (SelectList)ViewBag.ListaMarcadoresDrop, "Selecione...", new { @class = "form-control", @required = "required" })
                             </div>
                             <div class="col-md-4">
                                 <h3 class="panel-title">Idade:</h3>
-                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.idade, (SelectList)ViewBag.Idade, "Selecione...", new { @class = "form-control", @required = "required" })
                             </div>
                             <div class="col-md-4">
                                 <h3 class="panel-title">Status:</h3>
-                                @Html.DropDownListFor(model => model.statusMarcador, (SelectList)ViewBag.StatusMarcador, "Selecione...", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.statusMarcador, (SelectList)ViewBag.StatusMarcador, "Selecione...", new { @class = "form-control", @required = "required" })
                             </div>
 
 

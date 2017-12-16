@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <h3 class="panel-title">Telefone</h3>
-                                @Html.TextBoxFor(model => model.telefone, new { @required = "required", @class = "form-control", @maxlength = "50" })
+                                @Html.TextBoxFor(model => model.telefone, new { @required = "required", @class = "form-control telefone", @maxlength = "50" })
                             </div>
                             <div class="col-md-2">
                                 <h3 class="panel-title">Bairro</h3>
@@ -136,6 +136,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
+        $(document).ready(function () {
+            $(".telefone").mask("(99) 99999-9999");
+        });
+
         $('.ddluf').change(function () {
             var codigoUF = this.value;
             if (codigoUF > 0) {
