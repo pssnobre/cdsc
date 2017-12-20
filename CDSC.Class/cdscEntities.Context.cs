@@ -29,7 +29,6 @@ namespace CDSC.Class
         public DbSet<alimentacao_crianca> alimentacao_crianca { get; set; }
         public DbSet<crianca> crianca { get; set; }
         public DbSet<crianca_usuario> crianca_usuario { get; set; }
-        public DbSet<endereco> endereco { get; set; }
         public DbSet<intercorrencias> intercorrencias { get; set; }
         public DbSet<marcador_desenvolvimento> marcador_desenvolvimento { get; set; }
         public DbSet<marcador_desenvolvimento_crianca> marcador_desenvolvimento_crianca { get; set; }
@@ -51,5 +50,6 @@ namespace CDSC.Class
         public DbSet<exames_triagem_neonatal> exames_triagem_neonatal { get; set; }
         public DbSet<dados_alta> dados_alta { get; set; }
         public DbSet<nascimento> nascimento { get; set; }
+        public DbSet<endereco> endereco { get; set; }
     }
 }

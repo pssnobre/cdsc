@@ -66,9 +66,9 @@
         </EntityType>
         <EntityType Name="endereco">
           <Key>
-            <PropertyRef Name="end_id_endereço" />
+            <PropertyRef Name="end_id_endereco" />
           </Key>
-          <Property Name="end_id_endereço" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="end_id_endereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="end_id_crianca" Type="int" Nullable="false" />
           <Property Name="end_ds_endereco" Type="varchar" MaxLength="50" />
           <Property Name="end_ds_ponto_referencia" Type="varchar" MaxLength="20" />
@@ -794,7 +794,6 @@
           <EntitySet Name="alimentacao_crianca" EntityType="cdscModel.alimentacao_crianca" />
           <EntitySet Name="crianca" EntityType="cdscModel.crianca" />
           <EntitySet Name="crianca_usuario" EntityType="cdscModel.crianca_usuario" />
-          <EntitySet Name="endereco" EntityType="cdscModel.endereco" />
           <EntitySet Name="intercorrencias" EntityType="cdscModel.intercorrencias" />
           <EntitySet Name="marcador_desenvolvimento" EntityType="cdscModel.marcador_desenvolvimento" />
           <EntitySet Name="marcador_desenvolvimento_crianca" EntityType="cdscModel.marcador_desenvolvimento_crianca" />
@@ -828,10 +827,6 @@
           <AssociationSet Name="crianca_usuario_ibfk_2" Association="cdscModel.crianca_usuario_ibfk_2">
             <End Role="crianca" EntitySet="crianca" />
             <End Role="crianca_usuario" EntitySet="crianca_usuario" />
-          </AssociationSet>
-          <AssociationSet Name="endereco_ibfk_1" Association="cdscModel.endereco_ibfk_1">
-            <End Role="crianca" EntitySet="crianca" />
-            <End Role="endereco" EntitySet="endereco" />
           </AssociationSet>
           <AssociationSet Name="FK_crianca_usuario" Association="cdscModel.FK_crianca_usuario">
             <End Role="usuario" EntitySet="usuario" />
@@ -885,10 +880,6 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="crianca_usuario" EntitySet="crianca_usuario" />
           </AssociationSet>
-          <AssociationSet Name="endereco_ibfk_2" Association="cdscModel.endereco_ibfk_2">
-            <End Role="municipio" EntitySet="municipio" />
-            <End Role="endereco" EntitySet="endereco" />
-          </AssociationSet>
           <AssociationSet Name="marcador_desenvolvimento_crianca_ibfk_1" Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_1">
             <End Role="marcador_desenvolvimento" EntitySet="marcador_desenvolvimento" />
             <End Role="marcador_desenvolvimento_crianca" EntitySet="marcador_desenvolvimento_crianca" />
@@ -923,6 +914,15 @@
           <AssociationSet Name="nascimento_ibfk_2" Association="cdscModel.nascimento_ibfk_2">
             <End Role="municipio" EntitySet="municipio" />
             <End Role="nascimento" EntitySet="nascimento" />
+          </AssociationSet>
+          <EntitySet Name="endereco" EntityType="cdscModel.endereco" />
+          <AssociationSet Name="endereco_ibfk_1" Association="cdscModel.endereco_ibfk_1">
+            <End Role="crianca" EntitySet="crianca" />
+            <End Role="endereco" EntitySet="endereco" />
+          </AssociationSet>
+          <AssociationSet Name="endereco_ibfk_2" Association="cdscModel.endereco_ibfk_2">
+            <End Role="municipio" EntitySet="municipio" />
+            <End Role="endereco" EntitySet="endereco" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="afericao_pressao_arterial">
@@ -970,7 +970,6 @@
           <NavigationProperty Name="alimentacao_crianca" Relationship="cdscModel.alimentacao_crianca_ibfk_1" FromRole="crianca" ToRole="alimentacao_crianca" />
           <NavigationProperty Name="municipio" Relationship="cdscModel.crianca_ibfk_1" FromRole="crianca" ToRole="municipio" />
           <NavigationProperty Name="crianca_usuario" Relationship="cdscModel.crianca_usuario_ibfk_2" FromRole="crianca" ToRole="crianca_usuario" />
-          <NavigationProperty Name="endereco" Relationship="cdscModel.endereco_ibfk_1" FromRole="crianca" ToRole="endereco" />
           <NavigationProperty Name="usuario" Relationship="cdscModel.FK_crianca_usuario" FromRole="crianca" ToRole="usuario" />
           <NavigationProperty Name="intercorrencias" Relationship="cdscModel.intercorrencias_ibfk_1" FromRole="crianca" ToRole="intercorrencias" />
           <NavigationProperty Name="marcador_desenvolvimento_crianca" Relationship="cdscModel.marcador_desenvolvimento_crianca_ibfk_2" FromRole="crianca" ToRole="marcador_desenvolvimento_crianca" />
@@ -986,6 +985,7 @@
           <NavigationProperty Name="exames_triagem_neonatal" Relationship="cdscModel.exames_triagem_neonatal_ibfk_1" FromRole="crianca" ToRole="exames_triagem_neonatal" />
           <NavigationProperty Name="dados_alta" Relationship="cdscModel.dados_alta_ibfk_1" FromRole="crianca" ToRole="dados_alta" />
           <NavigationProperty Name="nascimento" Relationship="cdscModel.nascimento_ibfk_1" FromRole="crianca" ToRole="nascimento" />
+          <NavigationProperty Name="endereco" Relationship="cdscModel.endereco_ibfk_1" FromRole="crianca" ToRole="endereco" />
         </EntityType>
         <EntityType Name="crianca_usuario">
           <Key>
@@ -996,23 +996,6 @@
           <Property Name="cru_id_crianca" Type="Int32" Nullable="false" />
           <NavigationProperty Name="crianca" Relationship="cdscModel.crianca_usuario_ibfk_2" FromRole="crianca_usuario" ToRole="crianca" />
           <NavigationProperty Name="usuario" Relationship="cdscModel.crianca_usuario_ibfk_1" FromRole="crianca_usuario" ToRole="usuario" />
-        </EntityType>
-        <EntityType Name="endereco">
-          <Key>
-            <PropertyRef Name="end_id_endereço" />
-          </Key>
-          <Property Name="end_id_endereço" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="end_id_crianca" Type="Int32" Nullable="false" />
-          <Property Name="end_ds_endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="end_ds_ponto_referencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="end_nr_telefone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="end_ds_bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="end_nr_cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="end_id_municipio" Type="Int32" />
-          <Property Name="end_ds_unidade_basica_frequenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="end_dt_data" Type="DateTime" />
-          <NavigationProperty Name="crianca" Relationship="cdscModel.endereco_ibfk_1" FromRole="endereco" ToRole="crianca" />
-          <NavigationProperty Name="municipio" Relationship="cdscModel.endereco_ibfk_2" FromRole="endereco" ToRole="municipio" />
         </EntityType>
         <EntityType Name="intercorrencias">
           <Key>
@@ -1062,9 +1045,9 @@
           <Property Name="mun_ds_municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="mun_id_uf" Type="Int32" />
           <NavigationProperty Name="crianca" Relationship="cdscModel.crianca_ibfk_1" FromRole="municipio" ToRole="crianca" />
-          <NavigationProperty Name="endereco" Relationship="cdscModel.endereco_ibfk_2" FromRole="municipio" ToRole="endereco" />
           <NavigationProperty Name="uf" Relationship="cdscModel.municipio_ibfk_1" FromRole="municipio" ToRole="uf" />
           <NavigationProperty Name="nascimento" Relationship="cdscModel.nascimento_ibfk_2" FromRole="municipio" ToRole="nascimento" />
+          <NavigationProperty Name="endereco" Relationship="cdscModel.endereco_ibfk_2" FromRole="municipio" ToRole="endereco" />
         </EntityType>
         <EntityType Name="outras_observacoes">
           <Key>
@@ -1279,18 +1262,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="endereco_ibfk_1">
-          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
-          <End Type="cdscModel.endereco" Role="endereco" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="crianca">
-              <PropertyRef Name="cri_id_crianca" />
-            </Principal>
-            <Dependent Role="endereco">
-              <PropertyRef Name="end_id_crianca" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_crianca_usuario">
           <End Type="cdscModel.usuario" Role="usuario" Multiplicity="1" />
           <End Type="cdscModel.crianca" Role="crianca" Multiplicity="*" />
@@ -1444,18 +1415,6 @@
             </Principal>
             <Dependent Role="crianca_usuario">
               <PropertyRef Name="cru_id_usuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="endereco_ibfk_2">
-          <End Type="cdscModel.municipio" Role="municipio" Multiplicity="0..1" />
-          <End Type="cdscModel.endereco" Role="endereco" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="municipio">
-              <PropertyRef Name="mun_id_municipio" />
-            </Principal>
-            <Dependent Role="endereco">
-              <PropertyRef Name="end_id_municipio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1623,6 +1582,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="endereco">
+          <Key>
+            <PropertyRef Name="end_id_endereco" />
+          </Key>
+          <Property Name="end_id_endereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="end_id_crianca" Type="Int32" Nullable="false" />
+          <Property Name="end_ds_endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="end_ds_ponto_referencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="end_nr_telefone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="end_ds_bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="end_nr_cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="end_id_municipio" Type="Int32" />
+          <Property Name="end_ds_unidade_basica_frequenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="end_dt_data" Type="DateTime" />
+          <NavigationProperty Name="crianca" Relationship="cdscModel.endereco_ibfk_1" FromRole="endereco" ToRole="crianca" />
+          <NavigationProperty Name="municipio" Relationship="cdscModel.endereco_ibfk_2" FromRole="endereco" ToRole="municipio" />
+        </EntityType>
+        <Association Name="endereco_ibfk_1">
+          <End Type="cdscModel.crianca" Role="crianca" Multiplicity="1" />
+          <End Type="cdscModel.endereco" Role="endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="crianca">
+              <PropertyRef Name="cri_id_crianca" />
+            </Principal>
+            <Dependent Role="endereco">
+              <PropertyRef Name="end_id_crianca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="endereco_ibfk_2">
+          <End Type="cdscModel.municipio" Role="municipio" Multiplicity="0..1" />
+          <End Type="cdscModel.endereco" Role="endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="municipio">
+              <PropertyRef Name="mun_id_municipio" />
+            </Principal>
+            <Dependent Role="endereco">
+              <PropertyRef Name="end_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1678,22 +1678,6 @@
                 <ScalarProperty Name="cru_id_crianca" ColumnName="cru_id_crianca" />
                 <ScalarProperty Name="cru_id_usuario" ColumnName="cru_id_usuario" />
                 <ScalarProperty Name="cru_id_criança_usuario" ColumnName="cru_id_criança_usuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="endereco">
-            <EntityTypeMapping TypeName="cdscModel.endereco">
-              <MappingFragment StoreEntitySet="endereco">
-                <ScalarProperty Name="end_dt_data" ColumnName="end_dt_data" />
-                <ScalarProperty Name="end_ds_unidade_basica_frequenta" ColumnName="end_ds_unidade_basica_frequenta" />
-                <ScalarProperty Name="end_id_municipio" ColumnName="end_id_municipio" />
-                <ScalarProperty Name="end_nr_cep" ColumnName="end_nr_cep" />
-                <ScalarProperty Name="end_ds_bairro" ColumnName="end_ds_bairro" />
-                <ScalarProperty Name="end_nr_telefone" ColumnName="end_nr_telefone" />
-                <ScalarProperty Name="end_ds_ponto_referencia" ColumnName="end_ds_ponto_referencia" />
-                <ScalarProperty Name="end_ds_endereco" ColumnName="end_ds_endereco" />
-                <ScalarProperty Name="end_id_crianca" ColumnName="end_id_crianca" />
-                <ScalarProperty Name="end_id_endereço" ColumnName="end_id_endereço" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1975,6 +1959,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="endereco">
+            <EntityTypeMapping TypeName="cdscModel.endereco">
+              <MappingFragment StoreEntitySet="endereco">
+                <ScalarProperty Name="end_dt_data" ColumnName="end_dt_data" />
+                <ScalarProperty Name="end_ds_unidade_basica_frequenta" ColumnName="end_ds_unidade_basica_frequenta" />
+                <ScalarProperty Name="end_id_municipio" ColumnName="end_id_municipio" />
+                <ScalarProperty Name="end_nr_cep" ColumnName="end_nr_cep" />
+                <ScalarProperty Name="end_ds_bairro" ColumnName="end_ds_bairro" />
+                <ScalarProperty Name="end_nr_telefone" ColumnName="end_nr_telefone" />
+                <ScalarProperty Name="end_ds_ponto_referencia" ColumnName="end_ds_ponto_referencia" />
+                <ScalarProperty Name="end_ds_endereco" ColumnName="end_ds_endereco" />
+                <ScalarProperty Name="end_id_crianca" ColumnName="end_id_crianca" />
+                <ScalarProperty Name="end_id_endereco" ColumnName="end_id_endereco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1996,6 +1996,62 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram DiagramId="2a97638457cb4b28bddd5deda332c197" Name="Diagram1">
+        <EntityTypeShape EntityType="cdscModel.afericao_pressao_arterial" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.alimentacao_crianca" Width="1.5" PointX="7.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.crianca" Width="1.5" PointX="5.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.crianca_usuario" Width="1.5" PointX="10.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.intercorrencias" Width="1.5" PointX="7.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.marcador_desenvolvimento" Width="1.5" PointX="8.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.marcador_desenvolvimento_crianca" Width="1.5" PointX="10.5" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.menu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.municipio" Width="1.5" PointX="3" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.outras_observacoes" Width="1.5" PointX="7.5" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.parto" Width="1.5" PointX="7.5" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.perfil" Width="1.5" PointX="0.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.pre_natal" Width="1.5" PointX="7.5" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.registro_medidas_antropometricas" Width="1.5" PointX="7.5" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.saude_auditiva" Width="1.5" PointX="7.5" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.saude_ocular" Width="1.5" PointX="7.5" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.suplementacao_ferro" Width="1.5" PointX="7.5" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.suplementacao_vitamina_a" Width="1.5" PointX="7.5" PointY="57.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.uf" Width="1.5" PointX="0.75" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.usuario" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.vacina" Width="1.5" PointX="11.25" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.vacinas_crianca" Width="1.5" PointX="13.5" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.exames_triagem_neonatal" Width="1.5" PointX="7.5" PointY="67" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.dados_alta" Width="1.5" PointX="7.5" PointY="63.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cdscModel.nascimento" Width="1.5" PointX="13.5" PointY="29" IsExpanded="true" />
+        <AssociationConnector Association="cdscModel.afericao_pressao_arterial_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.alimentacao_crianca_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.crianca_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.crianca_usuario_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.FK_crianca_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.intercorrencias_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.outras_observacoes_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.parto_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.pre_natal_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.registro_medidas_antropometricas_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.saude_auditiva_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.saude_ocular_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.suplementacao_ferro_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.suplementacao_vitamina_a_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.vacinas_crianca_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.crianca_usuario_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.marcador_desenvolvimento_crianca_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.municipio_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.usuario_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.vacinas_crianca_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.exames_triagem_neonatal_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.dados_alta_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.nascimento_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="cdscModel.nascimento_ibfk_2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cdscModel.endereco" Width="1.5" PointX="10.5" PointY="30.875" />
+        <AssociationConnector Association="cdscModel.endereco_ibfk_1" />
+        <AssociationConnector Association="cdscModel.endereco_ibfk_2" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>

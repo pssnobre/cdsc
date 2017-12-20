@@ -19,7 +19,6 @@ namespace CDSC.Class
             this.afericao_pressao_arterial = new HashSet<afericao_pressao_arterial>();
             this.alimentacao_crianca = new HashSet<alimentacao_crianca>();
             this.crianca_usuario = new HashSet<crianca_usuario>();
-            this.endereco = new HashSet<endereco>();
             this.intercorrencias = new HashSet<intercorrencias>();
             this.marcador_desenvolvimento_crianca = new HashSet<marcador_desenvolvimento_crianca>();
             this.outras_observacoes = new HashSet<outras_observacoes>();
@@ -34,6 +33,7 @@ namespace CDSC.Class
             this.exames_triagem_neonatal = new HashSet<exames_triagem_neonatal>();
             this.dados_alta = new HashSet<dados_alta>();
             this.nascimento = new HashSet<nascimento>();
+            this.endereco = new HashSet<endereco>();
         }
     
         public int cri_id_crianca { get; set; }
@@ -55,7 +55,6 @@ namespace CDSC.Class
         public virtual ICollection<alimentacao_crianca> alimentacao_crianca { get; set; }
         public virtual municipio municipio { get; set; }
         public virtual ICollection<crianca_usuario> crianca_usuario { get; set; }
-        public virtual ICollection<endereco> endereco { get; set; }
         public virtual usuario usuario { get; set; }
         public virtual ICollection<intercorrencias> intercorrencias { get; set; }
         public virtual ICollection<marcador_desenvolvimento_crianca> marcador_desenvolvimento_crianca { get; set; }
@@ -71,5 +70,6 @@ namespace CDSC.Class
         public virtual ICollection<exames_triagem_neonatal> exames_triagem_neonatal { get; set; }
         public virtual ICollection<dados_alta> dados_alta { get; set; }
         public virtual ICollection<nascimento> nascimento { get; set; }
+        public virtual ICollection<endereco> endereco { get; set; }
     }
 }

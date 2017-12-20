@@ -14,7 +14,7 @@ namespace CDSC.Class
     
     public partial class endereco
     {
-        public int end_id_endereço { get; set; }
+        public int end_id_endereco { get; set; }
         public int end_id_crianca { get; set; }
         public string end_ds_endereco { get; set; }
         public string end_ds_ponto_referencia { get; set; }

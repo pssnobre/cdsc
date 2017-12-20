@@ -13,3 +13,11 @@ C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\bin\Debug\EntityFramework.xml
 C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\obj\Debug\CDSC.Class.csprojResolveAssemblyReference.cache
 C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\obj\Debug\CDSC.Class.dll
 C:\Users\paulo.nobre.TOPOS\Desktop\CDSC\CDSC.Class\obj\Debug\CDSC.Class.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\bin\Debug\CDSC.Class.dll.config
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\bin\Debug\CDSC.Class.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\bin\Debug\CDSC.Class.pdb
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\bin\Debug\EntityFramework.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\bin\Debug\EntityFramework.xml
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\obj\Debug\CDSC.Class.csprojResolveAssemblyReference.cache
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\obj\Debug\CDSC.Class.dll
+C:\Users\paulo.nobre.TOPOS\Desktop\mysql\CDSC\CDSC.Class\obj\Debug\CDSC.Class.pdb

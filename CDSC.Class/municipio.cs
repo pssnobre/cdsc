@@ -17,8 +17,8 @@ namespace CDSC.Class
         public municipio()
         {
             this.crianca = new HashSet<crianca>();
-            this.endereco = new HashSet<endereco>();
             this.nascimento = new HashSet<nascimento>();
+            this.endereco = new HashSet<endereco>();
         }
     
         public int mun_id_municipio { get; set; }
@@ -26,8 +26,8 @@ namespace CDSC.Class
         public Nullable<int> mun_id_uf { get; set; }
     
         public virtual ICollection<crianca> crianca { get; set; }
-        public virtual ICollection<endereco> endereco { get; set; }
         public virtual uf uf { get; set; }
         public virtual ICollection<nascimento> nascimento { get; set; }
+        public virtual ICollection<endereco> endereco { get; set; }
     }
 }
