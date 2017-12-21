@@ -12,25 +12,53 @@ namespace CDSC.Controllers
         public ActionResult Index()
         {
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(SuplementacaoModel.ObterRegistro(idUsuarioLogado));
         }
 
         public ActionResult Salvar(SuplementacaoModel modelObj)
         {
-            SuplementacaoModel.Salvar(modelObj);
-            return RedirectToAction("Index", "Suplementacao");
+            try
+            {
+                SuplementacaoModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "Suplementacao");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "Suplementacao");
+            }
         }
         
         public ActionResult AddSuplementacaoFerro(String suplementacaoFerroData, String suplementacaoFerroLocal)
         {
-            SuplementacaoModel.AdicionarSuplementacaoFerro(suplementacaoFerroData, suplementacaoFerroLocal);
-            return Index();
+            try
+            {
+                SuplementacaoModel.AdicionarSuplementacaoFerro(suplementacaoFerroData, suplementacaoFerroLocal);
+                TempData["mensagem"] = "sucesso";
+                return Index();
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return Index();
+            }
         }
 
         public ActionResult AddSuplementacaoDeVitaminaA(String suplementacaoVitaminaAData, String suplementacaoVitaminaALocal)
         {
-            SuplementacaoModel.AdicionarSuplementacaoVitaminaA(suplementacaoVitaminaAData, suplementacaoVitaminaALocal);
-            return Index();
+            try
+            {
+                SuplementacaoModel.AdicionarSuplementacaoVitaminaA(suplementacaoVitaminaAData, suplementacaoVitaminaALocal);
+                TempData["mensagem"] = "sucesso";
+                return Index();
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return Index();
+            }
         }
 
         public ActionResult Voltar()

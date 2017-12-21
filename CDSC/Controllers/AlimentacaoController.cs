@@ -12,13 +12,23 @@ namespace CDSC.Controllers
         public ActionResult Index()
         {
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(AlimentacaoModel.ObterRegistro(idUsuarioLogado));
         }
 
         public ActionResult Salvar(AlimentacaoModel modelObj)
         {
-            AlimentacaoModel.Salvar(modelObj);
-            return RedirectToAction("Index", "Intercorrencias");
+            try
+            {
+                AlimentacaoModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "Alimentacao");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "Alimentacao");
+            }
         }
 
 

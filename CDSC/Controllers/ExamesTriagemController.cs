@@ -19,16 +19,24 @@ namespace CDSC.Controllers
             {
                 CarregaMunicipios(obj.idUf);
             }
-            return View(obj);
 
-            //return View();
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
+            return View(obj);
         }
 
         public ActionResult Salvar(DadosRecemNascidoModel modelObj)
         {
-            DadosRecemNascidoModel.Salvar(modelObj);
-            return RedirectToAction("Index", "VigilanciaDesenvolvimento");
-
+            try
+            {
+                DadosRecemNascidoModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "ExamesTriagem");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "ExamesTriagem");
+            }
         }
 
         public JsonResult CarregaMunicipios(int id)

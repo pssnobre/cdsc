@@ -138,6 +138,15 @@
     <script>
         $(document).ready(function () {
             $(".telefone").mask("(99) 99999-9999");
+
+            var mensagem = '@ViewBag.Mensagem';
+
+            if (mensagem == 'sucesso') {
+                sucessMessage();
+            }
+            else if (mensagem == 'erro') {
+                errorMessage();
+            }
         });
 
         $('.ddluf').change(function () {

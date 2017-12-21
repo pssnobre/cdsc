@@ -41,7 +41,8 @@
                             <div class="col-md-12">
                                 @Html.ActionLink("Voltar", "Voltar", "Observacoes", new { @class = "btn bt-padrao" })
                                 <button type="submit" class="btn btn-success">Adicionar</button>
-                                @*<button type="button" class="btn btn-success btn-toastr" data-context="success" data-message="This is success info" data-position="top-right">Success Info</button>*@
+                                <button type="button" class="btn btn-success btn-toastr sucessMsg" style="display:none" data-context="success" data-message="Registro salvo com sucesso." data-position="top-right">Success Info</button>
+                                <button type="button" class="btn btn-danger btn-toastr errorMsg" style="display:none" data-context="error" data-message="Ocorreu um erro." data-position="top-right">Error Info</button>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -67,13 +68,13 @@
                                                     <tr>
                                                         <td>@Html.DisplayFor(modelItem => Model.listaObservacoes[i].data)</td>
                                                         <td>@Html.DisplayFor(modelItem => Model.listaObservacoes[i].descricaoObservacao)</td>
-                                                        
+
                                                     </tr>
                                                 }
                                                 @*<tr>
-                                                    <td>12/04/2001</td>
-                                                    <td>Teve febre alta</td>
-                                                </tr>*@
+                                                        <td>12/04/2001</td>
+                                                        <td>Teve febre alta</td>
+                                                    </tr>*@
                                             </tbody>
                                         </table>
                                     </div>
@@ -97,27 +98,74 @@
         $(document).ready(function () {
             $('.datepicker-here').attr('data-language', 'pt-BR');
 
-            $('.btn-toastr').on('click', function () {
-                $context = $(this).data('context');
-                $message = $(this).data('message');
-                $position = $(this).data('position');
+            var mensagem = '@ViewBag.Mensagem';
 
-                if ($context == '') {
-                    $context = 'info';
-                }
+            if (mensagem == 'sucesso') {
+                sucessMessage();
+            }
+            else if (mensagem == 'erro') {
+                errorMessage();
+            }
 
-                if ($position == '') {
-                    $positionClass = 'toast-left-top';
-                } else {
-                    $positionClass = 'toast-' + $position;
-                }
-
-                toastr.remove();
-                toastr[$context]($message, '', { positionClass: $positionClass });
-            });
-
-            @ViewBag.Script
         });
+
+        //$('.btn-toastr').on('click', function () {
+        //    $context = $(this).data('context');
+        //    $message = $(this).data('message');
+        //    $position = $(this).data('position');
+
+        //    if ($context == '') {
+        //        $context = 'info';
+        //    }
+
+        //    if ($position == '') {
+        //        $positionClass = 'toast-left-top';
+        //    } else {
+        //        $positionClass = 'toast-' + $position;
+        //    }
+
+        //    toastr.remove();
+        //    toastr[$context]($message, '', { positionClass: $positionClass });
+        //});
+
+
+        //function sucessMessage() {
+        //    $context = 'success';
+        //    $message = 'Registro salvo com sucesso.';
+        //    $position = 'top-right';
+
+        //    if ($context == '') {
+        //        $context = 'info';
+        //    }
+
+        //    if ($position == '') {
+        //        $positionClass = 'toast-left-top';
+        //    } else {
+        //        $positionClass = 'toast-' + $position;
+        //    }
+
+        //    toastr.remove();
+        //    toastr[$context]($message, '', { positionClass: $positionClass });
+        //}
+
+        //function errorMessage() {
+        //    $context = 'error';
+        //    $message = 'Ocorreu um erro.';
+        //    $position = 'top-right';
+
+        //    if ($context == '') {
+        //        $context = 'info';
+        //    }
+
+        //    if ($position == '') {
+        //        $positionClass = 'toast-left-top';
+        //    } else {
+        //        $positionClass = 'toast-' + $position;
+        //    }
+
+        //    toastr.remove();
+        //    toastr[$context]($message, '', { positionClass: $positionClass });
+        //}
 
     </script>
 

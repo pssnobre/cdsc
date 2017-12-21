@@ -181,13 +181,22 @@
     <script>
         $(document).ready(function () {
             $('.datepicker-here').attr('data-language', 'pt-BR');
+
+            var mensagem = '@ViewBag.Mensagem';
+
+            if (mensagem == 'sucesso') {
+                sucessMessage();
+            }
+            else if (mensagem == 'erro') {
+                errorMessage();
+            }
         });
 
         function addSuplementacaoDeFerro() {
             var suplementacaoFerroData = $(".suplementacaoFerroData").val();
             var suplementacaoFerroLocal = $(".suplementacaoFerroLocal").val();
 
-            $.post('@Url.Content("~/Suplementacao/AddSuplementacaoFerro/")', { suplementacaoFerroData, suplementacaoFerroLocal }, function (data) {                
+            $.post('@Url.Content("~/Suplementacao/AddSuplementacaoFerro/")', { suplementacaoFerroData, suplementacaoFerroLocal }, function (data) {
                 //loadTableSimilar();
             });
         };
@@ -200,9 +209,9 @@
                 //loadTableSimilar();
             });
         };
-        
 
-        
+
+
 
 
     </script>

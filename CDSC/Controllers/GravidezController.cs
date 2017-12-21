@@ -16,22 +16,29 @@ namespace CDSC.Controllers
             ViewBag.PeriodoSorologias = new SelectList(new Dictionary<int, string>() { { 1, "1º Trimestre" }, { 2, "2º Trimestre" }, { 3, "3º Trimestre" } }, "key", "value");
 
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(GravidezModel.ObterRegistro(idUsuarioLogado));
-
-            //return View();
         }
 
         public ActionResult Salvar(GravidezModel modelObj)
         {
-            GravidezModel.Salvar(modelObj);
-            return RedirectToAction("Index", "ExamesTriagem");
-
+            try
+            {
+                GravidezModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "Gravidez");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "Gravidez");
+            }
         }
 
 
         public ActionResult Voltar()
         {
-            return RedirectToAction("Index", "Gravidez");
+            return RedirectToAction("Index", "IdentificacaoCrianca");
         }
     }
 }

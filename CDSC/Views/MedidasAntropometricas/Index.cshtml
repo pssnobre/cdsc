@@ -26,15 +26,15 @@
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Peso(g):</h3>
-                                @Html.TextBoxFor(model => model.peso, new {  @required = "required", @class = "form-control", @maxlength = "10" })
+                                @Html.TextBoxFor(model => model.peso, new {  @required = "required", @class = "form-control", @type = "number", @maxlength = "10" })
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Estatura(cm):</h3>
-                                @Html.TextBoxFor(model => model.estatura, new { @required = "required", @class = "form-control", @maxlength = "10" })
+                                @Html.TextBoxFor(model => model.estatura, new { @required = "required", @class = "form-control", @type = "number", @maxlength = "10" })
                             </div>
                             <div class="col-md-3">
                                 <h3 class="panel-title">Perímetro Cefálico(cm):</h3>
-                                @Html.TextBoxFor(model => model.perimetroCefalico, new { @required = "required", @class = "form-control", @maxlength = "10" })
+                                @Html.TextBoxFor(model => model.perimetroCefalico, new { @required = "required", @class = "form-control", @type = "number", @maxlength = "10" })
                             </div>
 
 
@@ -90,6 +90,15 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div id="containerPeso" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                        </div>
+                        <div class="row">
+                            <div id="containerEstatura" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                        </div>                        
+                        <div class="row">
+                            <div id="containerPerimetroEncefalico" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                        </div>
 
 
                     </div>
@@ -99,6 +108,144 @@
         </div>
         <!-- END MAIN CONTENT -->
     </div>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.highcharts-credits').hide();
+
+            var mensagem = '@ViewBag.Mensagem';
+
+            if (mensagem == 'sucesso') {
+                sucessMessage();
+            }
+            else if (mensagem == 'erro') {
+                errorMessage();
+            }
+        });
+    </script>
+    <script>
+        var categoriaMesesArray = @ViewBag.Meses;
+        var dataMedidasEstaturaArray = @ViewBag.Medidas;
+        var pesosRegistradosAarray = @ViewBag.Pesos;
+        var perimetroEncefalicoArray = @ViewBag.PerimetroEncefalico;
+
+
+        Highcharts.chart('containerPeso', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Evolução do peso em meses'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: categoriaMesesArray
+            },
+            yAxis: {
+                title: {
+                    text: 'Pego (g)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Desenvolvimento Registrado',
+                data: pesosRegistradosAarray
+            }, {
+                name: 'Desenvolvimento Esperado',
+                data: [0, 4900, 5800, 6300, 7000, 7500, 8000, 7950, 8250, 9000, 9200, 9500, 9800]
+            },]
+        });
+
+
+        Highcharts.chart('containerEstatura', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Evolução da estatura em meses'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: categoriaMesesArray
+            },
+            yAxis: {
+                title: {
+                    text: 'Estatura (cm)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Desenvolvimento Registrado',
+                data: dataMedidasEstaturaArray
+            }, {
+                name: 'Desenvolvimento Esperado',
+                data: [0, 54, 58, 61, 64, 65, 67, 69, 71, 73, 74, 75, 76]
+            },]
+        });
+
+
+        
+        Highcharts.chart('containerPerimetroEncefalico', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Evolução do perímetro cefálico em meses'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: categoriaMesesArray
+            },
+            yAxis: {
+                title: {
+                    text: 'Perímetro Cefálico (cm)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Desenvolvimento Registrado',
+                data: perimetroEncefalicoArray
+            }, {
+                name: 'Desenvolvimento Esperado',
+                data: [0, 34.5, 36.5, 38, 39.1, 40.2, 41, 41.5, 42.2, 42.6, 43, 44.4, 44.7]
+            }]
+        });
+
+
+
+
+
+    </script>
 
 }
 

@@ -15,13 +15,23 @@ namespace CDSC.Controllers
             ViewBag.UF = new SelectList(UFModel.ObterUF(), "uff_id_uf", "uff_ds_uf");
             ViewBag.Municipio = new SelectList(MunicipioModel.ObterMunicipio(0), "mun_id_municipio", "mun_ds_municipio");
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(MudancaEnderecoModel.ObterRegistro(idUsuarioLogado));
         }
 
         public ActionResult Salvar(MudancaEnderecoModel modelObj)
         {
-            MudancaEnderecoModel.Salvar(modelObj);
-            return RedirectToAction("Index", "Gravidez");
+            try
+            {
+                MudancaEnderecoModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "MudancaEndereco");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "MudancaEndereco");
+            }
         }
 
         public JsonResult CarregaMunicipios(int id)

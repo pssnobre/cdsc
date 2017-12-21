@@ -28,6 +28,7 @@ namespace CDSC.Controllers
             identificacaoCrianca.dataNascimento = String.IsNullOrEmpty(identificacaoCrianca.dataNascimento)  ? "" : identificacaoCrianca.dataNascimento.ToString();
             ViewBag.Municipio = new SelectList(MunicipioModel.ObterMunicipio(identificacaoCrianca.idUf), "mun_id_municipio", "mun_ds_municipio");
 
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(identificacaoCrianca);
         }
 
@@ -40,11 +41,17 @@ namespace CDSC.Controllers
 
         public ActionResult Salvar(IdentificacaoCriancaModel modelObj)
         {
-            //return View("Index");
-
-            IdentificacaoCriancaModel.Salvar(modelObj);
-            //return Index();
-            return RedirectToAction("Index", "MudancaEndereco");
+            try
+            {
+                IdentificacaoCriancaModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "IdentificacaoCrianca");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "IdentificacaoCrianca");
+            }
         }
     }
 }

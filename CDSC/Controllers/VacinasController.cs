@@ -14,14 +14,24 @@ namespace CDSC.Controllers
             ViewBag.Doses = new SelectList(new Dictionary<int, string>() { { 1, "1ª Dose" }, { 2, "2ª Dose" }, { 3, "3ª Dose" } }, "key", "value");
             ViewBag.Vacinas = new SelectList(VacinaModel.ObterVacinas(), "vac_id_vacina", "vac_ds_vacina");
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(VacinaModel.ObterRegistro(idUsuarioLogado));
 
         }
 
         public ActionResult Salvar(VacinaModel modelObj)
         {
-            VacinaModel.Salvar(modelObj);
-            return RedirectToAction("Index", "Alimentacao");
+            try
+            {
+                VacinaModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "Vacinas");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "Vacinas");
+            }
         }
 
 

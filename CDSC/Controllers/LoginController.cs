@@ -12,19 +12,29 @@ namespace CDSC.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View();
         }
 
         public ActionResult NovoUsuario()
         {
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View("NovoUsuario");
         }
 
         public ActionResult Logar(UsuarioModel usu)
         {
-            if (UsuarioModel.Login(usu))
+            try
             {
-                return RedirectToAction("Index", "IdentificacaoCrianca");
+                if (UsuarioModel.Login(usu))
+                {
+                    return RedirectToAction("Index", "IdentificacaoCrianca");
+                }
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "Login");
             }
             return RedirectToAction("Index", "Login");
         }
@@ -37,14 +47,23 @@ namespace CDSC.Controllers
 
         public ActionResult Salvar(UsuarioModel usu)
         {
-            if (usu.senha != usu.confirmacaoSenha)
+            if (usu.senha != usu.confirmacaoSenha || String.IsNullOrEmpty(usu.email) || String.IsNullOrEmpty(usu.senha) || String.IsNullOrEmpty(usu.confirmacaoSenha))
             {
-                // retornar mensagem de erro.
+                TempData["mensagem"] = "erro";
                 return RedirectToAction("NovoUsuario", "Login");
             }
 
-            UsuarioModel.Salvar(usu);
-            return RedirectToAction("Index", "Login");
+            try
+            {
+                UsuarioModel.Salvar(usu);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "Login");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "NovoUsuario");
+            }
         }
         
 

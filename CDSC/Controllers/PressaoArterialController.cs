@@ -15,13 +15,23 @@ namespace CDSC.Controllers
                                                                            { 7, "7 Meses" }, { 8, "8 Meses" }, { 9, "9 Meses" }, { 10, "10 Meses" }, { 11, "11 Meses" }, { 12, "12 Meses" } }, "key", "value");
 
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(PressaoArterialModel.ObterRegistro(idUsuarioLogado));
         }
 
         public ActionResult Salvar(PressaoArterialModel modelObj)
         {
-            PressaoArterialModel.Salvar(modelObj);
-            return RedirectToAction("Index", "Suplementacao");
+            try
+            {
+                PressaoArterialModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "PressaoArterial");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "PressaoArterial");
+            }
         }
 
 

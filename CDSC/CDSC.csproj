@@ -204,6 +204,7 @@
     <Content Include="Content\assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <None Include="Properties\PublishProfiles\cdsc.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\datepicker.pt-BR.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

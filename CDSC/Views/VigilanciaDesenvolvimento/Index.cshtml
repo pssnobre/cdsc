@@ -110,6 +110,22 @@
         <!-- END MAIN CONTENT -->
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.highcharts-credits').hide();
+
+            var mensagem = '@ViewBag.Mensagem';
+
+            if (mensagem == 'sucesso') {
+                sucessMessage();
+            }
+            else if (mensagem == 'erro') {
+                errorMessage();
+            }
+        });
+    </script>
+
 }
 
 

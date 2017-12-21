@@ -17,16 +17,24 @@ namespace CDSC.Controllers
             ViewBag.ListaMarcadoresDrop = new SelectList(VigilanciaDesenvolvimentoModel.ListaMarcadores(), "mdv_id_marcador", "mdv_ds_marcador");
             int idUsuarioLogado = UsuarioModel.ObterUsuarioSessao().idUsuario;
             VigilanciaDesenvolvimentoModel objVigilanciaDesenvolvimentoModel = VigilanciaDesenvolvimentoModel.ObterRegistro(idUsuarioLogado);
-            
 
+            ViewBag.Mensagem = TempData["mensagem"] == null ? "" : TempData["mensagem"].ToString();
             return View(objVigilanciaDesenvolvimentoModel);
         }
 
         public ActionResult Salvar(VigilanciaDesenvolvimentoModel modelObj)
         {
-            VigilanciaDesenvolvimentoModel.Salvar(modelObj);
-            return RedirectToAction("Index", "VigilanciaDesenvolvimento");
-
+            try
+            {
+                VigilanciaDesenvolvimentoModel.Salvar(modelObj);
+                TempData["mensagem"] = "sucesso";
+                return RedirectToAction("Index", "VigilanciaDesenvolvimento");
+            }
+            catch (Exception)
+            {
+                TempData["mensagem"] = "erro";
+                return RedirectToAction("Index", "VigilanciaDesenvolvimento");
+            }
         }
 
 
